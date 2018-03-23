@@ -15,8 +15,7 @@
     "type": "git",
     "url": "https://github.com/diegosteiner/vue-occupancies-calendar.git"
   },
-  "keywords": [
-  ],
+  "keywords": [],
   "author": "Diego P. Steiner",
   "license": "MIT",
   "bugs": {
@@ -24,8 +23,8 @@
   },
   "homepage": "https://github.com/diegosteiner/vue-occupancies-calendar",
   "peerDependencies": {
-    "vue": "^2.3.0",
-    "moment": ""
+    "moment": "",
+    "vue": "^2.3.0"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
@@ -41,5 +40,8 @@
     "vue-template-compiler": "^2.3.0",
     "webpack": "^2.3.3",
     "webpack-merge": "^4.1.0"
+  },
+  "dependencies": {
+    "moment": "^2.21.0"
   }
 }
