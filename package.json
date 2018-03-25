@@ -6,16 +6,17 @@
   "jsnext:main": "src/index.js",
   "scripts": {
     "start": "webpack-dev-server --config docs/webpack.config.js",
-    "demo": "NODE_ENV=production webpack --config docs/webpack.config.js",
     "build": "rm -rf dist && NODE_ENV=production webpack",
-    "lint": "eslint --ext .js,.vue --fix src __tests__; exit 0",
+    "lint": "eslint --ext .js,.vue --fix src; exit 0",
     "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/diegosteiner/vue-occupancies-calendar.git"
   },
-  "keywords": [],
+  "keywords": [
+    "diegosteiner"
+  ],
   "author": "Diego P. Steiner",
   "license": "MIT",
   "bugs": {
@@ -23,11 +24,10 @@
   },
   "homepage": "https://github.com/diegosteiner/vue-occupancies-calendar",
   "peerDependencies": {
-    "moment": "",
     "vue": "^2.3.0"
   },
   "devDependencies": {
-    "babel-core": "^6.24.1",
+    "babel-core": "^6.26.0",
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.16.0",
     "babel-plugin-transform-runtime": "^6.23.0",

@@ -1,6 +1,6 @@
-import Calendar from './components/Calendar';
-import CalendarMonth from './components/CalendarMonth';
-import CalendarDay from './components/CalendarDay';
+import Calendar from './components/Calendar.vue';
+import CalendarMonth from './components/CalendarMonth.vue';
+import CalendarDay from './components/CalendarDay.vue';
 
 export default {
     install(Vue) {

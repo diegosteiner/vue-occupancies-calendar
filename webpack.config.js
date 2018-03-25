@@ -1,19 +1,37 @@
+const webpack = require('webpack');
 const path = require('path');
-const merge = require('webpack-merge');
 
-module.exports = merge(require('./webpack.base'), {
-    context: __dirname,
+module.exports = {
+  context: __dirname,
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        include: __dirname,
+        exclude: /node_modules/
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      {
+        test: /\.css$/,
+        loader: 'style!less!css'
+      }
+    ]
+  },
+  entry: './src/index.js',
 
-    entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'index.js',
+    library: 'vue-occupancies-calendar',
+    libraryTarget: 'umd',
+  },
 
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'index.js',
-        library: 'vue-tabs',
-        libraryTarget: 'umd',
-    },
-
-    externals: {
-        vue: 'vue',
-    },
-});
+  externals: {
+    vue: 'vue',
+    moment: 'moment',
+  },
+};
