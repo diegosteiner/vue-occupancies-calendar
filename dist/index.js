@@ -746,7 +746,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         return dates;
       },
       weekdayNames: function weekdayNames() {
-        return _moment2.default.weekdaysShort();
+        return _moment2.default.weekdaysShort().unshift(_moment2.default.weekdaysShort().pop());
       },
       monthName: function monthName() {
         return (0, _moment2.default)(this.firstDate).format("MMMM");
@@ -846,7 +846,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, ".calendar-day{align-items:center;display:flex;flex-direction:column;flex:0 0 14.28%;max-width:14.28%;padding:.2rem;margin:1px}", ""]);
+exports.push([module.i, ".calendar-day{align-items:center;display:flex;flex-direction:column;flex:0 0 14%;max-width:14%;padding:.25rem;cursor:pointer;margin:0}.calendar-day.spacer{cursor:auto}", ""]);
 
 // exports
 

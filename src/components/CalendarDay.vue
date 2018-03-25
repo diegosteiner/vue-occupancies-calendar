@@ -37,9 +37,13 @@ export default {
   align-items: center;
   display: flex;
   flex-direction: column;
-  flex: 0 0 14.28%;
-  max-width: 14.28%;
-  padding: 0.2rem;
-  margin: 1px;
+  flex: 0 0 14%;
+  max-width: 14%;
+  padding: 0.25rem;
+  cursor: pointer;
+  margin: 0;
+}
+.calendar-day.spacer {
+  cursor: initial;
 }
 </style>

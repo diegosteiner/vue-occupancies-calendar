@@ -43,7 +43,7 @@ export default {
       return dates;
     },
     weekdayNames: function() {
-      return moment.weekdaysShort();
+      return moment.weekdaysShort().unshift(moment.weekdaysShort().pop());
     },
     monthName: function() {
       return moment(this.firstDate).format("MMMM");
