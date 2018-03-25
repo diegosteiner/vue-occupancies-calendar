@@ -3,7 +3,7 @@
         v-on:click='handleClick'
         class='calendar-day'
         :class='handleClass'>
-        <a href='#'>
+        <a :href='handleLink()'>
         {{ dayOfMonth }}
         </a>
         </div>
@@ -11,13 +11,24 @@
 
 <script>
 export default {
-  props: ["date", "calendarDayClassCallback", "calendarDayClickCallback"],
+  props: [
+    "date",
+    "calendarDayClassCallback",
+    "calendarDayClickCallback",
+    "calendarDayLinkCallback"
+  ],
   methods: {
     handleClick() {
       this.$emit("dateSelected", this.date);
       if (this.calendarDayClickCallback !== undefined) {
         return this.calendarDayClickCallback(this.date);
       }
+    },
+    handleLink() {
+      if (this.calendarDayLinkCallback !== undefined) {
+        return this.calendarDayLinkCallback(this.date);
+      }
+      return "#";
     }
   },
   computed: {
@@ -38,14 +49,17 @@ export default {
 
 <style>
 .calendar-day {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
   flex: 0 0 14.28%;
   max-width: 14.28%;
-  padding: 0.25rem;
   cursor: pointer;
   margin: 0;
+}
+
+.calendar-day a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
 }
 .calendar-day.spacer {
   cursor: initial;

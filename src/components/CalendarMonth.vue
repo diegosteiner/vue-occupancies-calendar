@@ -7,9 +7,12 @@
           <div class='calendar-days'>
             <div v-for='n in monthStartsAfter' :key='n' class='calendar-day spacer'></div>
             <calendar-day v-for='date in datesToDisplay'
+                          :date='date'
+                          :key='date.format("Y-MM-DD")'
                           :calendar-day-class-callback='calendarDayClassCallback'
                           :calendar-day-click-callback='calendarDayClickCallback'
-                          :date='date'></calendar-day>
+                          :calendar-day-link-callback='calendarDayLinkCallback'
+                          ></calendar-day>
           </div>
         </div>
 </template>
@@ -23,7 +26,8 @@ export default {
     "datetime",
     "moment",
     "calendarDayClassCallback",
-    "calendarDayClickCallback"
+    "calendarDayClickCallback",
+    "calendarDayLinkCallback"
   ],
   components: { CalendarDay },
   computed: {
@@ -44,7 +48,8 @@ export default {
     },
     weekdayNames: function() {
       const weekdays = moment.weekdaysShort().slice(0);
-      return weekdays.unshift(weekdaysShort.pop());
+      return weekdays.push(weekdays.unshift());
+      return weekdays;
     },
     monthName: function() {
       return moment(this.firstDate).format("MMMM");
@@ -60,7 +65,6 @@ export default {
 .calendar-month {
   margin: 1rem;
   overflow: hidden;
-  flex-direction: column;
   flex: 1 0;
   max-width: 400px;
   min-width: 195px;
@@ -78,7 +82,6 @@ export default {
 }
 
 .calendar-month .calendar-week span {
-  flex-direction: column;
   flex: 0 0 14.28%;
   font-weight: bold;
   max-width: 14.28%;

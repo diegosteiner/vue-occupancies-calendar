@@ -595,7 +595,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   }
 
   exports.default = {
-    props: ["displayMonths", "calendarDayClassCallback", "calendarDayClickCallback"],
+    props: ["displayMonths", "calendarDayClassCallback", "calendarDayClickCallback", "calendarDayLinkCallback"],
     data: function data() {
       return {
         months: []
@@ -665,13 +665,19 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     value: true
   });
   exports.default = {
-    props: ["date", "calendarDayClassCallback", "calendarDayClickCallback"],
+    props: ["date", "calendarDayClassCallback", "calendarDayClickCallback", "calendarDayLinkCallback"],
     methods: {
       handleClick: function handleClick() {
         this.$emit("dateSelected", this.date);
         if (this.calendarDayClickCallback !== undefined) {
           return this.calendarDayClickCallback(this.date);
         }
+      },
+      handleLink: function handleLink() {
+        if (this.calendarDayLinkCallback !== undefined) {
+          return this.calendarDayLinkCallback(this.date);
+        }
+        return "#";
       }
     },
     computed: {
@@ -727,7 +733,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   }
 
   exports.default = {
-    props: ["datetime", "moment", "calendarDayClassCallback", "calendarDayClickCallback"],
+    props: ["datetime", "moment", "calendarDayClassCallback", "calendarDayClickCallback", "calendarDayLinkCallback"],
     components: { CalendarDay: _CalendarDay2.default },
     computed: {
       firstDate: function firstDate() {
@@ -747,7 +753,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       },
       weekdayNames: function weekdayNames() {
         var weekdays = _moment2.default.weekdaysShort().slice(0);
-        return weekdays.unshift(weekdaysShort.pop());
+        return weekdays.push(weekdays.unshift());
+        return weekdays;
       },
       monthName: function monthName() {
         return (0, _moment2.default)(this.firstDate).format("MMMM");
@@ -833,7 +840,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, ".calendar-month{margin:1rem;overflow:hidden;flex-direction:column;flex:1 0;max-width:400px;min-width:195px}.calendar-month header{font-weight:700;text-align:center;padding:1rem 0}.calendar-month .calendar-week{display:flex}.calendar-month .calendar-week span{flex-direction:column;flex:0 0 14.28%;font-weight:700;max-width:14.28%;text-align:center;padding:.25rem}.calendar-month .calendar-days{display:flex;flex-wrap:wrap}", ""]);
+exports.push([module.i, ".calendar-month{margin:1rem;overflow:hidden;flex:1 0;max-width:400px;min-width:195px}.calendar-month header{font-weight:700;text-align:center;padding:1rem 0}.calendar-month .calendar-week{display:flex}.calendar-month .calendar-week span{flex:0 0 14.28%;font-weight:700;max-width:14.28%;text-align:center;padding:.25rem}.calendar-month .calendar-days{display:flex;flex-wrap:wrap}", ""]);
 
 // exports
 
@@ -847,7 +854,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, ".calendar-day{align-items:center;display:flex;flex-direction:column;flex:0 0 14.28%;max-width:14.28%;padding:.25rem;cursor:pointer;margin:0}.calendar-day.spacer{cursor:auto}", ""]);
+exports.push([module.i, ".calendar-day{flex:0 0 14.28%;max-width:14.28%;cursor:pointer;margin:0}.calendar-day a{display:block;text-decoration:none;color:inherit;text-align:center}.calendar-day.spacer{cursor:auto}", ""]);
 
 // exports
 
@@ -873,10 +880,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "calendar-months"
   }, _vm._l((_vm.months), function(month) {
     return _c('calendar-month', {
+      key: month.format("Y-MM"),
       attrs: {
         "datetime": month.format("Y-MM"),
         "calendar-day-class-callback": _vm.calendarDayClassCallback,
-        "calendar-day-click-callback": _vm.calendarDayClickCallback
+        "calendar-day-click-callback": _vm.calendarDayClickCallback,
+        "calendar-day-link-callback": _vm.calendarDayLinkCallback
       }
     })
   }))])
@@ -904,10 +913,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     })
   }), _vm._v(" "), _vm._l((_vm.datesToDisplay), function(date) {
     return _c('calendar-day', {
+      key: date.format("Y-MM-DD"),
       attrs: {
+        "date": date,
         "calendar-day-class-callback": _vm.calendarDayClassCallback,
         "calendar-day-click-callback": _vm.calendarDayClickCallback,
-        "date": date
+        "calendar-day-link-callback": _vm.calendarDayLinkCallback
       }
     })
   })], 2)])
@@ -929,7 +940,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('a', {
     attrs: {
-      "href": "#"
+      "href": _vm.handleLink()
     }
   }, [_vm._v("\n      " + _vm._s(_vm.dayOfMonth) + "\n      ")])])
 },staticRenderFns: []}

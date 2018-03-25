@@ -8,8 +8,10 @@
     <div class='calendar-months'>
       <calendar-month v-for='month in months'
                       :datetime='month.format("Y-MM")'
+                      :key='month.format("Y-MM")'
                       :calendar-day-class-callback='calendarDayClassCallback'
                       :calendar-day-click-callback='calendarDayClickCallback'
+                      :calendar-day-link-callback='calendarDayLinkCallback'
       ></calendar-month>
     </div>
   </div>
@@ -23,7 +25,8 @@ export default {
   props: [
     "displayMonths",
     "calendarDayClassCallback",
-    "calendarDayClickCallback"
+    "calendarDayClickCallback",
+    "calendarDayLinkCallback"
   ],
   data: function() {
     return {
