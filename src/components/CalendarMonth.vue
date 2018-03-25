@@ -48,7 +48,7 @@ export default {
     },
     weekdayNames: function() {
       const weekdays = moment.weekdaysShort().slice(0);
-      weekdays.push(weekdays.unshift());
+      weekdays.push(weekdays.shift());
       return weekdays;
     },
     monthName: function() {

@@ -753,7 +753,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       },
       weekdayNames: function weekdayNames() {
         var weekdays = _moment2.default.weekdaysShort().slice(0);
-        weekdays.push(weekdays.unshift());
+        weekdays.push(weekdays.shift());
         return weekdays;
       },
       monthName: function monthName() {
