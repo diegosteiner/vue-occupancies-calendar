@@ -43,7 +43,8 @@ export default {
       return dates;
     },
     weekdayNames: function() {
-      return moment.weekdaysShort().unshift(moment.weekdaysShort().pop());
+      const weekdays = moment.weekdaysShort().slice(0);
+      return weekdays.unshift(weekdaysShort.pop());
     },
     monthName: function() {
       return moment(this.firstDate).format("MMMM");
@@ -82,8 +83,7 @@ export default {
   font-weight: bold;
   max-width: 14.28%;
   text-align: center;
-  padding: 0.2rem;
-  margin: 1px;
+  padding: 0.25rem;
 }
 
 .calendar-month .calendar-days {

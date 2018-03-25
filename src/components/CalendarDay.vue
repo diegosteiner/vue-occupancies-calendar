@@ -2,7 +2,11 @@
   <div :datetime='datetime'
         v-on:click='handleClick'
         class='calendar-day'
-        :class='handleClass'>{{ dayOfMonth }}</div>
+        :class='handleClass'>
+        <a href='#'>
+        {{ dayOfMonth }}
+        </a>
+        </div>
 </template>
 
 <script>
@@ -37,8 +41,8 @@ export default {
   align-items: center;
   display: flex;
   flex-direction: column;
-  flex: 0 0 14%;
-  max-width: 14%;
+  flex: 0 0 14.28%;
+  max-width: 14.28%;
   padding: 0.25rem;
   cursor: pointer;
   margin: 0;
