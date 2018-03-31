@@ -52,7 +52,7 @@ export default {
       return weekdays;
     },
     monthName: function() {
-      return moment(this.firstDate).format("MMMM");
+      return moment(this.firstDate).format("MMMM Y");
     },
     monthStartsAfter: function() {
       return parseInt(this.firstDate.format("e"));
@@ -73,12 +73,11 @@ export default {
 .calendar-month header {
   font-weight: bold;
   text-align: center;
-  padding: 1rem 0;
+  padding: 0.25rem 0;
 }
 
 .calendar-month .calendar-week {
   display: flex;
-  /* flex-wrap: wrap; */
 }
 
 .calendar-month .calendar-week span {

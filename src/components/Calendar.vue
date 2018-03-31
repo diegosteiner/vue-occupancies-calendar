@@ -1,10 +1,9 @@
 <template>
   <div class="calendar-main">
-    <header class='calendar-header'>
+    <nav class='calendar-nav'>
       <button v-on:click='prev'>←</button>
-      <span>{{ years }}</span>
       <button v-on:click='next'>→</button>
-    </header>
+    </nav>
     <div class='calendar-months'>
       <calendar-month v-for='month in months'
                       :datetime='month.format("Y-MM")'
@@ -83,13 +82,9 @@ export default {
   display: flex;
 }
 
-.calendar-header button {
-  flex: 1 1;
-}
-
-.calendar-header * {
+.calendar-nav button {
   display: block;
-  flex: 3 3;
+  flex: 1 1;
   text-align: center;
   background: transparent;
   border: none;
