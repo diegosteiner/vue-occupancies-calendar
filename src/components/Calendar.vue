@@ -72,7 +72,7 @@ export default {
   box-sizing: border-box;
 }
 
-.calendar-header {
+.calendar-nav {
   display: flex;
 }
 

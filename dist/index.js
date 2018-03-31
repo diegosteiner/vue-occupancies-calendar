@@ -819,7 +819,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, ".calendar-main *,.calendar-main :after,.calendar-main :before{box-sizing:border-box}.calendar-header{display:flex}.calendar-nav button{display:block;flex:1 1;text-align:center;background:transparent;border:none}.calendar-months{display:flex;flex-wrap:wrap}", ""]);
+exports.push([module.i, ".calendar-main *,.calendar-main :after,.calendar-main :before{box-sizing:border-box}.calendar-nav{display:flex}.calendar-nav button{display:block;flex:1 1;text-align:center;background:transparent;border:none}.calendar-months{display:flex;flex-wrap:wrap}", ""]);
 
 // exports
 
