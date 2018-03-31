@@ -39,12 +39,6 @@ export default {
     },
     monthsCount: function() {
       return parseInt(this.displayMonths) || 4;
-    },
-    years: function() {
-      return this.months
-        .map(m => m.format("Y"))
-        .filter((m, i, a) => i === a.indexOf(m))
-        .join(" / ");
     }
   },
   methods: {

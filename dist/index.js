@@ -608,13 +608,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       },
       monthsCount: function monthsCount() {
         return parseInt(this.displayMonths) || 4;
-      },
-      years: function years() {
-        return this.months.map(function (m) {
-          return m.format("Y");
-        }).filter(function (m, i, a) {
-          return i === a.indexOf(m);
-        }).join(" / ");
       }
     },
     methods: {
@@ -757,7 +750,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         return weekdays;
       },
       monthName: function monthName() {
-        return (0, _moment2.default)(this.firstDate).format("MMMM");
+        return (0, _moment2.default)(this.firstDate).format("MMMM Y");
       },
       monthStartsAfter: function monthStartsAfter() {
         return parseInt(this.firstDate.format("e"));
@@ -826,7 +819,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, ".calendar-main *,.calendar-main :after,.calendar-main :before{box-sizing:border-box}.calendar-header{display:flex}.calendar-header button{flex:1 1}.calendar-header *{display:block;flex:3 3;text-align:center;background:transparent;border:none}.calendar-months{display:flex;flex-wrap:wrap}", ""]);
+exports.push([module.i, ".calendar-main *,.calendar-main :after,.calendar-main :before{box-sizing:border-box}.calendar-header{display:flex}.calendar-nav button{display:block;flex:1 1;text-align:center;background:transparent;border:none}.calendar-months{display:flex;flex-wrap:wrap}", ""]);
 
 // exports
 
@@ -840,7 +833,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, ".calendar-month{margin:1rem;overflow:hidden;flex:1 0;max-width:400px;min-width:195px}.calendar-month header{font-weight:700;text-align:center;padding:1rem 0}.calendar-month .calendar-week{display:flex}.calendar-month .calendar-week span{flex:0 0 14.28%;font-weight:700;max-width:14.28%;text-align:center;padding:.25rem}.calendar-month .calendar-days{display:flex;flex-wrap:wrap}", ""]);
+exports.push([module.i, ".calendar-month{margin:1rem;overflow:hidden;flex:1 0;max-width:400px;min-width:195px}.calendar-month header{font-weight:700;text-align:center;padding:.25rem 0}.calendar-month .calendar-week{display:flex}.calendar-month .calendar-week span{flex:0 0 14.28%;font-weight:700;max-width:14.28%;text-align:center;padding:.25rem}.calendar-month .calendar-days{display:flex;flex-wrap:wrap}", ""]);
 
 // exports
 
@@ -866,13 +859,13 @@ exports.push([module.i, ".calendar-day{flex:0 0 14.28%;max-width:14.28%;cursor:p
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "calendar-main"
-  }, [_c('header', {
-    staticClass: "calendar-header"
+  }, [_c('nav', {
+    staticClass: "calendar-nav"
   }, [_c('button', {
     on: {
       "click": _vm.prev
     }
-  }, [_vm._v("←")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.years))]), _vm._v(" "), _c('button', {
+  }, [_vm._v("←")]), _vm._v(" "), _c('button', {
     on: {
       "click": _vm.next
     }
