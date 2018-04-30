@@ -8,10 +8,11 @@
       <calendar-month v-for='month in months'
                       :datetime='month.format("Y-MM")'
                       :key='month.format("Y-MM")'
-                      :calendar-day-class-callback='calendarDayClassCallback'
-                      :calendar-day-click-callback='calendarDayClickCallback'
-                      :calendar-day-link-callback='calendarDayLinkCallback'
-      ></calendar-month>
+      >
+                        <template scope="date">
+                          <slot v-bind="date"></slot>
+                        </template>
+      </calendar-month>
     </div>
   </div>
 </template>
@@ -21,12 +22,7 @@ import CalendarMonth from "./CalendarMonth.vue";
 import moment from "moment";
 
 export default {
-  props: [
-    "displayMonths",
-    "calendarDayClassCallback",
-    "calendarDayClickCallback",
-    "calendarDayLinkCallback"
-  ],
+  props: ["displayMonths"],
   data: function() {
     return {
       months: []

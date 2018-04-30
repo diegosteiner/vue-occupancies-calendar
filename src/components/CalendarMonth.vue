@@ -6,30 +6,21 @@
           </div>
           <div class='calendar-days'>
             <div v-for='n in monthStartsAfter' :key='n' class='calendar-day spacer'></div>
-            <calendar-day v-for='date in datesToDisplay'
+            <div v-for='date in datesToDisplay' class='calendar-day'
                           :date='date'
                           :key='date.format("Y-MM-DD")'
-                          :calendar-day-class-callback='calendarDayClassCallback'
-                          :calendar-day-click-callback='calendarDayClickCallback'
-                          :calendar-day-link-callback='calendarDayLinkCallback'
-                          ></calendar-day>
+                          >
+                            <slot v-bind="date"></slot>
+                          </div>
           </div>
         </div>
 </template>
 
 <script>
-import CalendarDay from "./CalendarDay.vue";
 import moment from "moment";
 
 export default {
-  props: [
-    "datetime",
-    "moment",
-    "calendarDayClassCallback",
-    "calendarDayClickCallback",
-    "calendarDayLinkCallback"
-  ],
-  components: { CalendarDay },
+  props: ["datetime", "moment"],
   computed: {
     firstDate: function() {
       if (this.moment !== undefined) {
@@ -91,5 +82,22 @@ export default {
 .calendar-month .calendar-days {
   display: flex;
   flex-wrap: wrap;
+}
+
+.calendar-day {
+  flex: 0 0 14.28%;
+  max-width: 14.28%;
+  cursor: pointer;
+  margin: 0;
+}
+
+.calendar-day a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+}
+.calendar-day.spacer {
+  cursor: initial;
 }
 </style>

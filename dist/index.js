@@ -7,7 +7,7 @@
 		exports["vue-occupancies-calendar"] = factory(require("moment"));
 	else
 		root["vue-occupancies-calendar"] = factory(root["moment"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_5__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_4__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -73,11 +73,34 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+function injectStyle (ssrContext) {
+  __webpack_require__(14)
+}
+var Component = __webpack_require__(2)(
+  /* script */
+  __webpack_require__(7),
+  /* template */
+  __webpack_require__(12),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
 /*
@@ -159,7 +182,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -256,7 +279,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -275,7 +298,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(20)
+var listToStyles = __webpack_require__(15)
 
 /*
 type StyleObject = {
@@ -484,87 +507,41 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-function injectStyle (ssrContext) {
-  __webpack_require__(19)
-}
-var Component = __webpack_require__(1)(
-  /* script */
-  __webpack_require__(8),
-  /* template */
-  __webpack_require__(16),
-  /* styles */
-  injectStyle,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-
-module.exports = Component.exports
-
-
-/***/ }),
 /* 4 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-function injectStyle (ssrContext) {
-  __webpack_require__(18)
-}
-var Component = __webpack_require__(1)(
-  /* script */
-  __webpack_require__(9),
-  /* template */
-  __webpack_require__(15),
-  /* styles */
-  injectStyle,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-
-module.exports = Component.exports
-
+module.exports = __WEBPACK_EXTERNAL_MODULE_4__;
 
 /***/ }),
 /* 5 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE_5__;
+function injectStyle (ssrContext) {
+  __webpack_require__(13)
+}
+var Component = __webpack_require__(2)(
+  /* script */
+  __webpack_require__(6),
+  /* template */
+  __webpack_require__(11),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
 
 /***/ }),
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-function injectStyle (ssrContext) {
-  __webpack_require__(17)
-}
-var Component = __webpack_require__(1)(
-  /* script */
-  __webpack_require__(7),
-  /* template */
-  __webpack_require__(14),
-  /* styles */
-  injectStyle,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
   if (true) {
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(4), __webpack_require__(5)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(0), __webpack_require__(4)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -595,7 +572,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   }
 
   exports.default = {
-    props: ["displayMonths", "calendarDayClassCallback", "calendarDayClickCallback", "calendarDayLinkCallback"],
+    props: ["displayMonths"],
     data: function data() {
       return {
         months: []
@@ -633,89 +610,30 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 });
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
   if (true) {
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(4)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
   } else if (typeof exports !== "undefined") {
-    factory(exports);
+    factory(exports, require("moment"));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports);
-    global.CalendarDay = mod.exports;
-  }
-})(this, function (exports) {
-  "use strict";
-
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.default = {
-    props: ["date", "calendarDayClassCallback", "calendarDayClickCallback", "calendarDayLinkCallback"],
-    methods: {
-      handleClick: function handleClick() {
-        this.$emit("dateSelected", this.date);
-        if (this.calendarDayClickCallback !== undefined) {
-          return this.calendarDayClickCallback(this.date);
-        }
-      },
-      handleLink: function handleLink() {
-        if (this.calendarDayLinkCallback !== undefined) {
-          return this.calendarDayLinkCallback(this.date);
-        }
-        return "#";
-      }
-    },
-    computed: {
-      handleClass: function handleClass() {
-        if (this.calendarDayClassCallback !== undefined) {
-          return this.calendarDayClassCallback(this.date);
-        }
-      },
-      dayOfMonth: function dayOfMonth() {
-        return this.date.format("D");
-      },
-      datetime: function datetime() {
-        return this.date.format("Y-MM-DD");
-      }
-    }
-  };
-});
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
-  if (true) {
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(3), __webpack_require__(5)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else if (typeof exports !== "undefined") {
-    factory(exports, require("./CalendarDay.vue"), require("moment"));
-  } else {
-    var mod = {
-      exports: {}
-    };
-    factory(mod.exports, global.CalendarDay, global.moment);
+    factory(mod.exports, global.moment);
     global.CalendarMonth = mod.exports;
   }
-})(this, function (exports, _CalendarDay, _moment) {
+})(this, function (exports, _moment) {
   "use strict";
 
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-
-  var _CalendarDay2 = _interopRequireDefault(_CalendarDay);
 
   var _moment2 = _interopRequireDefault(_moment);
 
@@ -726,8 +644,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   }
 
   exports.default = {
-    props: ["datetime", "moment", "calendarDayClassCallback", "calendarDayClickCallback", "calendarDayLinkCallback"],
-    components: { CalendarDay: _CalendarDay2.default },
+    props: ["datetime", "moment"],
     computed: {
       firstDate: function firstDate() {
         if (this.moment !== undefined) {
@@ -760,37 +677,35 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 });
 
 /***/ }),
-/* 10 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
     if (true) {
-        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(6), __webpack_require__(4), __webpack_require__(3)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(5), __webpack_require__(0)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
     } else if (typeof exports !== "undefined") {
-        factory(exports, require('./components/Calendar.vue'), require('./components/CalendarMonth.vue'), require('./components/CalendarDay.vue'));
+        factory(exports, require('./components/Calendar.vue'), require('./components/CalendarMonth.vue'));
     } else {
         var mod = {
             exports: {}
         };
-        factory(mod.exports, global.Calendar, global.CalendarMonth, global.CalendarDay);
+        factory(mod.exports, global.Calendar, global.CalendarMonth);
         global.index = mod.exports;
     }
-})(this, function (exports, _Calendar, _CalendarMonth, _CalendarDay) {
+})(this, function (exports, _Calendar, _CalendarMonth) {
     'use strict';
 
     Object.defineProperty(exports, "__esModule", {
         value: true
     });
-    exports.CalendarDay = exports.CalendarMonth = exports.Calendar = undefined;
+    exports.CalendarMonth = exports.Calendar = undefined;
 
     var _Calendar2 = _interopRequireDefault(_Calendar);
 
     var _CalendarMonth2 = _interopRequireDefault(_CalendarMonth);
-
-    var _CalendarDay2 = _interopRequireDefault(_CalendarDay);
 
     function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {
@@ -802,19 +717,17 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         install: function install(Vue) {
             Vue.component('calendar', _Calendar2.default);
             Vue.component('calendar-month', _CalendarMonth2.default);
-            Vue.component('calendar-day', _CalendarDay2.default);
         }
     };
     exports.Calendar = _Calendar2.default;
     exports.CalendarMonth = _CalendarMonth2.default;
-    exports.CalendarDay = _CalendarDay2.default;
 });
 
 /***/ }),
-/* 11 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)(false);
+exports = module.exports = __webpack_require__(1)(false);
 // imports
 
 
@@ -825,35 +738,21 @@ exports.push([module.i, ".calendar-main *,.calendar-main :after,.calendar-main :
 
 
 /***/ }),
-/* 12 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)(false);
+exports = module.exports = __webpack_require__(1)(false);
 // imports
 
 
 // module
-exports.push([module.i, ".calendar-month{margin:1rem;overflow:hidden;flex:1 0;max-width:400px;min-width:195px}.calendar-month header{font-weight:700;text-align:center;padding:.25rem 0}.calendar-month .calendar-week{display:flex}.calendar-month .calendar-week span{flex:0 0 14.28%;font-weight:700;max-width:14.28%;text-align:center;padding:.25rem}.calendar-month .calendar-days{display:flex;flex-wrap:wrap}", ""]);
+exports.push([module.i, ".calendar-month{margin:1rem;overflow:hidden;flex:1 0;max-width:400px;min-width:195px}.calendar-month header{font-weight:700;text-align:center;padding:.25rem 0}.calendar-month .calendar-week{display:flex}.calendar-month .calendar-week span{flex:0 0 14.28%;font-weight:700;max-width:14.28%;text-align:center;padding:.25rem}.calendar-month .calendar-days{display:flex;flex-wrap:wrap}.calendar-day{flex:0 0 14.28%;max-width:14.28%;cursor:pointer;margin:0}.calendar-day a{display:block;text-decoration:none;color:inherit;text-align:center}.calendar-day.spacer{cursor:auto}", ""]);
 
 // exports
 
 
 /***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(0)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".calendar-day{flex:0 0 14.28%;max-width:14.28%;cursor:pointer;margin:0}.calendar-day a{display:block;text-decoration:none;color:inherit;text-align:center}.calendar-day.spacer{cursor:auto}", ""]);
-
-// exports
-
-
-/***/ }),
-/* 14 */
+/* 11 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -875,17 +774,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     return _c('calendar-month', {
       key: month.format("Y-MM"),
       attrs: {
-        "datetime": month.format("Y-MM"),
-        "calendar-day-class-callback": _vm.calendarDayClassCallback,
-        "calendar-day-click-callback": _vm.calendarDayClickCallback,
-        "calendar-day-link-callback": _vm.calendarDayLinkCallback
-      }
+        "datetime": month.format("Y-MM")
+      },
+      scopedSlots: _vm._u([{
+        key: "default",
+        fn: function(date) {
+          return [_vm._t("default", null, null, date)]
+        }
+      }])
     })
   }))])
 },staticRenderFns: []}
 
 /***/ }),
-/* 15 */
+/* 12 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -905,80 +807,44 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "calendar-day spacer"
     })
   }), _vm._v(" "), _vm._l((_vm.datesToDisplay), function(date) {
-    return _c('calendar-day', {
+    return _c('div', {
       key: date.format("Y-MM-DD"),
+      staticClass: "calendar-day",
       attrs: {
-        "date": date,
-        "calendar-day-class-callback": _vm.calendarDayClassCallback,
-        "calendar-day-click-callback": _vm.calendarDayClickCallback,
-        "calendar-day-link-callback": _vm.calendarDayLinkCallback
+        "date": date
       }
-    })
+    }, [_vm._t("default", null, null, date)], 2)
   })], 2)])
 },staticRenderFns: []}
 
 /***/ }),
-/* 16 */
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "calendar-day",
-    class: _vm.handleClass,
-    attrs: {
-      "datetime": _vm.datetime
-    },
-    on: {
-      "click": _vm.handleClick
-    }
-  }, [_c('a', {
-    attrs: {
-      "href": _vm.handleLink()
-    }
-  }, [_vm._v("\n      " + _vm._s(_vm.dayOfMonth) + "\n      ")])])
-},staticRenderFns: []}
-
-/***/ }),
-/* 17 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(11);
+var content = __webpack_require__(9);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("1d94d644", content, true, {});
+var update = __webpack_require__(3)("1d94d644", content, true, {});
 
 /***/ }),
-/* 18 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(12);
+var content = __webpack_require__(10);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("4dbb2a0a", content, true, {});
+var update = __webpack_require__(3)("4dbb2a0a", content, true, {});
 
 /***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(13);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(2)("17a07768", content, true, {});
-
-/***/ }),
-/* 20 */
+/* 15 */
 /***/ (function(module, exports) {
 
 /**
