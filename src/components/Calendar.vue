@@ -22,7 +22,7 @@ import CalendarMonth from "./CalendarMonth.vue";
 import moment from "moment";
 
 export default {
-  props: ["displayMonths", "labelNext", "labelPrev"],
+  props: ["displayMonths"],
   data: function() {
     return {
       months: []
@@ -35,6 +35,12 @@ export default {
     },
     monthsCount: function() {
       return parseInt(this.displayMonths) || 4;
+    },
+    labelNext: function() {
+      this.$t("next", "");
+    },
+    labelPrev: function() {
+      this.$t("prev", "");
     }
   },
   methods: {
