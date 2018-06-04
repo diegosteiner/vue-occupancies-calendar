@@ -1,8 +1,8 @@
 <template>
   <div class="calendar-main">
     <nav class='calendar-nav'>
-      <button v-on:click='prev'>←</button>
-      <button v-on:click='next'>→</button>
+      <button v-on:click='prev'>← {{ labelPrev }}</button>
+      <button v-on:click='next'> {{ labelNext }}→</button>
     </nav>
     <div class='calendar-months'>
       <calendar-month v-for='month in months'
@@ -22,7 +22,7 @@ import CalendarMonth from "./CalendarMonth.vue";
 import moment from "moment";
 
 export default {
-  props: ["displayMonths"],
+  props: ["displayMonths", "labelNext", "labelPrev"],
   data: function() {
     return {
       months: []
