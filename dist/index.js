@@ -585,6 +585,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       },
       monthsCount: function monthsCount() {
         return parseInt(this.displayMonths) || 4;
+      },
+      labelNext: function labelNext() {
+        this.$t("next", "");
+      },
+      labelPrev: function labelPrev() {
+        this.$t("prev", "");
       }
     },
     methods: {
@@ -764,11 +770,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.prev
     }
-  }, [_vm._v("←")]), _vm._v(" "), _c('button', {
+  }, [_vm._v("← " + _vm._s(_vm.labelPrev))]), _vm._v(" "), _c('button', {
     on: {
       "click": _vm.next
     }
-  }, [_vm._v("→")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v(" " + _vm._s(_vm.labelNext) + "→")])]), _vm._v(" "), _c('div', {
     staticClass: "calendar-months"
   }, _vm._l((_vm.months), function(month) {
     return _c('calendar-month', {
