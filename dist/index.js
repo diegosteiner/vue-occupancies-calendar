@@ -587,10 +587,10 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         return parseInt(this.displayMonths) || 4;
       },
       labelNext: function labelNext() {
-        this.$t("next", "");
+        this.$t("next");
       },
       labelPrev: function labelPrev() {
-        this.$t("prev", "");
+        this.$t("prev");
       }
     },
     methods: {
