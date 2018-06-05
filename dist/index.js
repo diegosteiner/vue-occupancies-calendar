@@ -774,7 +774,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.next
     }
-  }, [_vm._v(" " + _vm._s(_vm.labelNext) + "→")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.labelNext) + " →")])]), _vm._v(" "), _c('div', {
     staticClass: "calendar-months"
   }, _vm._l((_vm.months), function(month) {
     return _c('calendar-month', {
@@ -789,7 +789,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }])
     })
-  }))])
+  })), _vm._v(" "), _c('nav', {
+    staticClass: "calendar-nav"
+  }, [_c('button', {
+    on: {
+      "click": _vm.prev
+    }
+  }, [_vm._v("← " + _vm._s(_vm.labelPrev))]), _vm._v(" "), _c('button', {
+    on: {
+      "click": _vm.next
+    }
+  }, [_vm._v(_vm._s(_vm.labelNext) + " →")])])])
 },staticRenderFns: []}
 
 /***/ }),
