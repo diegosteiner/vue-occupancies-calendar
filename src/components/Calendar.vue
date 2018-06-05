@@ -37,10 +37,10 @@ export default {
       return parseInt(this.displayMonths) || 4;
     },
     labelNext: function() {
-      this.$t("next");
+      return this.$t("next");
     },
     labelPrev: function() {
-      this.$t("prev");
+      return this.$t("prev");
     }
   },
   methods: {
