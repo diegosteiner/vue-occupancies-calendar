@@ -752,7 +752,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, ".calendar-month{margin:1rem;overflow:hidden;flex:1 0;max-width:400px;min-width:195px}.calendar-month header{font-weight:700;text-align:center;padding:.25rem 0}.calendar-month .calendar-week{display:flex}.calendar-month .calendar-week span{flex:0 0 14.28%;font-weight:700;max-width:14.28%;text-align:center;padding:.25rem}.calendar-month .calendar-days{display:flex;flex-wrap:wrap}.calendar-day{flex:0 0 14.28%;max-width:14.28%;cursor:pointer;margin:0}.calendar-day a{display:block;text-decoration:none;color:inherit;text-align:center}.calendar-day.spacer{cursor:auto}", ""]);
+exports.push([module.i, ".calendar-month{margin:1rem;overflow:hidden;flex:1 0;max-width:400px;min-width:200px}.calendar-month header{font-weight:700;text-align:center;padding:.25rem 0}.calendar-month .calendar-week{display:flex}.calendar-month .calendar-week span{flex:0 0 14.28%;font-weight:700;max-width:14.28%;text-align:center;padding:.25rem}.calendar-month .calendar-days{display:flex;flex-wrap:wrap}.calendar-day{flex:0 0 14.28%;max-width:14.28%;cursor:pointer;margin:0}.calendar-day a{display:block;text-decoration:none;color:inherit;text-align:center}.calendar-day.spacer{cursor:auto}", ""]);
 
 // exports
 
@@ -827,7 +827,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       key: date.format("Y-MM-DD"),
       staticClass: "calendar-day",
       attrs: {
-        "date": date
+        "date": date.format("Y-MM-DD")
       }
     }, [_vm._t("default", null, null, date)], 2)
   })], 2)])

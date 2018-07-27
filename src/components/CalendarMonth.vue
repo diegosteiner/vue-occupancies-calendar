@@ -7,7 +7,7 @@
           <div class='calendar-days'>
             <div v-for='n in monthStartsAfter' :key='n' class='calendar-day spacer'></div>
             <div v-for='date in datesToDisplay' class='calendar-day'
-                          :date='date'
+                          :date='date.format("Y-MM-DD")'
                           :key='date.format("Y-MM-DD")'
                           >
                             <slot v-bind="date"></slot>
@@ -58,7 +58,7 @@ export default {
   overflow: hidden;
   flex: 1 0;
   max-width: 400px;
-  min-width: 195px;
+  min-width: 200px;
 }
 
 .calendar-month header {
