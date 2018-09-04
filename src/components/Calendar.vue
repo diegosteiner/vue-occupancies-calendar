@@ -23,10 +23,10 @@
 
 <script>
 import CalendarMonth from "./CalendarMonth.vue";
-import moment from "moment";
+import moment, { isMoment } from "moment";
 
 export default {
-  props: ["displayMonths"],
+  props: ["displayMonths", "firstMonth"],
   data: function() {
     return {
       months: []
@@ -49,8 +49,8 @@ export default {
   },
   methods: {
     initializeMonths: function() {
-      var month = moment().startOf("month");
-      for (var i = this.monthsCount; i > 0; i--) {
+      let month = moment(this.firstMonth).startOf("month");
+      for (let i = this.monthsCount; i > 0; i--) {
         this.months.push(month);
         month = moment(month);
         month.add(1, "month");
