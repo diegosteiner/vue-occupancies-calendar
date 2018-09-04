@@ -50,9 +50,10 @@ export default {
   methods: {
     initializeMonths: function() {
       let month = moment(this.firstMonth());
-      if (!moment.isDate(month)) {
-        month = moment().startOf("month");
+      if (!month.isValid()) {
+        month = moment();
       }
+      month = month.startOf("month");
       for (let i = this.monthsCount; i > 0; i--) {
         this.months.push(month);
         month = moment(month);
