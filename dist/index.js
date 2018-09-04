@@ -595,7 +595,10 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     },
     methods: {
       initializeMonths: function initializeMonths() {
-        var month = (0, _moment2.default)(this.firstMonth).startOf("month");
+        var month = (0, _moment2.default)(this.firstMonth());
+        if (!_moment2.default.isDate(month)) {
+          month = (0, _moment2.default)().startOf("month");
+        }
         for (var i = this.monthsCount; i > 0; i--) {
           this.months.push(month);
           month = (0, _moment2.default)(month);
