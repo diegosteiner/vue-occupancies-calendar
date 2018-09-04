@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     initializeMonths: function() {
-      let month = moment(this.firstMonth());
+      let month = moment(this.firstMonth !== undefined && this.firstMonth());
       if (!month.isValid()) {
         month = moment();
       }
