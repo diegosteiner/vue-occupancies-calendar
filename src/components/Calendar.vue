@@ -37,7 +37,7 @@ export default {
   components: { CalendarMonth },
   computed: {
     years() {
-      return this.months.map(m => m.year()).join("/");
+      return [...new Set(this.months.map(m => m.year()))].join("/");
     },
     firstDate: function() {
       return this.months[0];
