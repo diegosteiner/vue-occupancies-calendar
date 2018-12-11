@@ -9,8 +9,8 @@
       <div
         v-for="date in datesToDisplay"
         class="calendar-day"
-        :date="date.format("Y-MM-DD")"
-        :key="date.format("Y-MM-DD")"
+        :date="date.format('Y-MM-DD')"
+        :key="date.format('Y-MM-DD')"
       >
         <slot v-bind="date"></slot>
       </div>

@@ -8,8 +8,8 @@
     <div class="calendar-months">
       <calendar-month
         v-for="month in months"
-        :datetime="month.format("Y-MM")"
-        :key="month.format("Y-MM")"
+        :datetime="month.format('Y-MM')"
+        :key="month.format('Y-MM')"
       >
         <template scope="date">
           <slot v-bind="date"></slot>

@@ -785,14 +785,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "click": _vm.next
     }
   }, [_vm._v(_vm._s(_vm.labelNext) + " →")])]), _vm._v(" "), _c('div', {
-    staticClass: "calendar-months",
-    scopedSlots: _vm._u([{
-      key: "default",
-      fn: function(date) {
-        return [_vm._t("default", null, null, date)]
-      }
-    }])
-  }, [_vm._v("\")\"\n      :key=\"month.format(\"Y-MM\")\"\n    >\n      ")]), _vm._v(" "), _c('nav', {
+    staticClass: "calendar-months"
+  }, _vm._l((_vm.months), function(month) {
+    return _c('calendar-month', {
+      key: month.format('Y-MM'),
+      attrs: {
+        "datetime": month.format('Y-MM')
+      },
+      scopedSlots: _vm._u([{
+        key: "default",
+        fn: function(date) {
+          return [_vm._t("default", null, null, date)]
+        }
+      }])
+    })
+  }), 1), _vm._v(" "), _c('nav', {
     staticClass: "calendar-nav"
   }, [_c('button', {
     on: {
@@ -825,7 +832,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       key: n,
       staticClass: "calendar-day spacer"
     })
-  }), _vm._v(" "), _vm._v("\")\"\n      :key=\"date.format(\"Y-MM-DD\")\"\n    >\n      "), _vm._t("default", null, null, _vm.date)], 2)])
+  }), _vm._v(" "), _vm._l((_vm.datesToDisplay), function(date) {
+    return _c('div', {
+      key: date.format('Y-MM-DD'),
+      staticClass: "calendar-day",
+      attrs: {
+        "date": date.format('Y-MM-DD')
+      }
+    }, [_vm._t("default", null, null, date)], 2)
+  })], 2)])
 },staticRenderFns: []}
 
 /***/ }),
