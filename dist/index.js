@@ -581,7 +581,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     components: { CalendarMonth: _CalendarMonth2.default },
     computed: {
       years: function years() {
-        this.months.map(function (m) {
+        return this.months.map(function (m) {
           return m.year();
         })[0];
       },
