@@ -1,19 +1,21 @@
 <template>
-        <div class='calendar-month'>
-          <header >{{ monthName }}</header>
-          <div class='calendar-week'>
-             <span v-for='weekday in weekdayNames' :key='weekday'>{{ weekday }}</span>
-          </div>
-          <div class='calendar-days'>
-            <div v-for='n in monthStartsAfter' :key='n' class='calendar-day spacer'></div>
-            <div v-for='date in datesToDisplay' class='calendar-day'
-                          :date='date.format("Y-MM-DD")'
-                          :key='date.format("Y-MM-DD")'
-                          >
-                            <slot v-bind="date"></slot>
-                          </div>
-          </div>
-        </div>
+  <div class="calendar-month">
+    <header>{{ monthName }}</header>
+    <div class="calendar-week">
+      <span v-for="weekday in weekdayNames" :key="weekday">{{ weekday }}</span>
+    </div>
+    <div class="calendar-days">
+      <div v-for="n in monthStartsAfter" :key="n" class="calendar-day spacer"></div>
+      <div
+        v-for="date in datesToDisplay"
+        class="calendar-day"
+        :date="date.format("Y-MM-DD")"
+        :key="date.format("Y-MM-DD")"
+      >
+        <slot v-bind="date"></slot>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -57,8 +59,8 @@ export default {
   margin: 1rem;
   overflow: hidden;
   flex: 1 0;
-  max-width: 400px;
-  min-width: 200px;
+  max-width: 300px;
+  min-width: 252px;
 }
 
 .calendar-month header {

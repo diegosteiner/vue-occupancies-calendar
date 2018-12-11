@@ -580,6 +580,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     },
     components: { CalendarMonth: _CalendarMonth2.default },
     computed: {
+      years: function years() {
+        this.months.map(function (m) {
+          return m.year();
+        })[0];
+      },
+
       firstDate: function firstDate() {
         return this.months[0];
       },
@@ -742,7 +748,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, ".calendar-main *,.calendar-main :after,.calendar-main :before{box-sizing:border-box}.calendar-nav{display:flex}.calendar-nav button{display:block;flex:1 1;text-align:center;background:transparent;border:none}.calendar-months{display:flex;flex-wrap:wrap}", ""]);
+exports.push([module.i, ".calendar-main *,.calendar-main :after,.calendar-main :before{box-sizing:border-box}.calendar-nav{display:flex}.calendar-nav header{flex:2 1}.calendar-nav button{display:block;flex:1 1;text-align:center;background:transparent;border:none}.calendar-months{display:flex;flex-wrap:wrap}", ""]);
 
 // exports
 
@@ -756,7 +762,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, ".calendar-month{margin:1rem;overflow:hidden;flex:1 0;max-width:400px;min-width:200px}.calendar-month header{font-weight:700;text-align:center;padding:.25rem 0}.calendar-month .calendar-week{display:flex}.calendar-month .calendar-week span{flex:0 0 14.28%;font-weight:700;max-width:14.28%;text-align:center;padding:.25rem}.calendar-month .calendar-days{display:flex;flex-wrap:wrap}.calendar-day{flex:0 0 14.28%;max-width:14.28%;cursor:pointer;margin:0}.calendar-day a{display:block;text-decoration:none;color:inherit;text-align:center}.calendar-day.spacer{cursor:auto}", ""]);
+exports.push([module.i, ".calendar-month{margin:1rem;overflow:hidden;flex:1 0;max-width:300px;min-width:252px}.calendar-month header{font-weight:700;text-align:center;padding:.25rem 0}.calendar-month .calendar-week{display:flex}.calendar-month .calendar-week span{flex:0 0 14.28%;font-weight:700;max-width:14.28%;text-align:center;padding:.25rem}.calendar-month .calendar-days{display:flex;flex-wrap:wrap}.calendar-day{flex:0 0 14.28%;max-width:14.28%;cursor:pointer;margin:0}.calendar-day a{display:block;text-decoration:none;color:inherit;text-align:center}.calendar-day.spacer{cursor:auto}", ""]);
 
 // exports
 
@@ -774,26 +780,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.prev
     }
-  }, [_vm._v("← " + _vm._s(_vm.labelPrev))]), _vm._v(" "), _c('button', {
+  }, [_vm._v("← " + _vm._s(_vm.labelPrev))]), _vm._v(" "), _c('header', [_vm._v(_vm._s(_vm.years))]), _vm._v(" "), _c('button', {
     on: {
       "click": _vm.next
     }
   }, [_vm._v(_vm._s(_vm.labelNext) + " →")])]), _vm._v(" "), _c('div', {
-    staticClass: "calendar-months"
-  }, _vm._l((_vm.months), function(month) {
-    return _c('calendar-month', {
-      key: month.format("Y-MM"),
-      attrs: {
-        "datetime": month.format("Y-MM")
-      },
-      scopedSlots: _vm._u([{
-        key: "default",
-        fn: function(date) {
-          return [_vm._t("default", null, null, date)]
-        }
-      }])
-    })
-  })), _vm._v(" "), _c('nav', {
+    staticClass: "calendar-months",
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function(date) {
+        return [_vm._t("default", null, null, date)]
+      }
+    }])
+  }, [_vm._v("\")\"\n      :key=\"month.format(\"Y-MM\")\"\n    >\n      ")]), _vm._v(" "), _c('nav', {
     staticClass: "calendar-nav"
   }, [_c('button', {
     on: {
@@ -826,15 +825,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       key: n,
       staticClass: "calendar-day spacer"
     })
-  }), _vm._v(" "), _vm._l((_vm.datesToDisplay), function(date) {
-    return _c('div', {
-      key: date.format("Y-MM-DD"),
-      staticClass: "calendar-day",
-      attrs: {
-        "date": date.format("Y-MM-DD")
-      }
-    }, [_vm._t("default", null, null, date)], 2)
-  })], 2)])
+  }), _vm._v(" "), _vm._v("\")\"\n      :key=\"date.format(\"Y-MM-DD\")\"\n    >\n      "), _vm._t("default", null, null, _vm.date)], 2)])
 },staticRenderFns: []}
 
 /***/ }),

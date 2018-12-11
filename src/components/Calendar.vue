@@ -1,22 +1,24 @@
 <template>
   <div class="calendar-main">
-    <nav class='calendar-nav'>
-      <button v-on:click='prev'>← {{ labelPrev }}</button>
-      <button v-on:click='next'>{{ labelNext }} →</button>
+    <nav class="calendar-nav">
+      <button v-on:click="prev">← {{ labelPrev }}</button>
+      <header>{{ years }}</header>
+      <button v-on:click="next">{{ labelNext }} →</button>
     </nav>
-    <div class='calendar-months'>
-      <calendar-month v-for='month in months'
-                      :datetime='month.format("Y-MM")'
-                      :key='month.format("Y-MM")'
+    <div class="calendar-months">
+      <calendar-month
+        v-for="month in months"
+        :datetime="month.format("Y-MM")"
+        :key="month.format("Y-MM")"
       >
-                        <template scope="date">
-                          <slot v-bind="date"></slot>
-                        </template>
+        <template scope="date">
+          <slot v-bind="date"></slot>
+        </template>
       </calendar-month>
     </div>
-    <nav class='calendar-nav'>
-      <button v-on:click='prev'>← {{ labelPrev }}</button>
-      <button v-on:click='next'>{{ labelNext }} →</button>
+    <nav class="calendar-nav">
+      <button v-on:click="prev">← {{ labelPrev }}</button>
+      <button v-on:click="next">{{ labelNext }} →</button>
     </nav>
   </div>
 </template>
@@ -34,6 +36,9 @@ export default {
   },
   components: { CalendarMonth },
   computed: {
+    years() {
+      this.months.map(m => m.year())[0];
+    },
     firstDate: function() {
       return this.months[0];
     },
@@ -84,6 +89,10 @@ export default {
 
 .calendar-nav {
   display: flex;
+}
+
+.calendar-nav header {
+  flex: 2 1;
 }
 
 .calendar-nav button {
