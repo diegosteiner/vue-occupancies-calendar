@@ -583,7 +583,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       years: function years() {
         return this.months.map(function (m) {
           return m.year();
-        })[0];
+        }).join("/");
       },
 
       firstDate: function firstDate() {
@@ -748,7 +748,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, ".calendar-main *,.calendar-main :after,.calendar-main :before{box-sizing:border-box}.calendar-nav{display:flex}.calendar-nav header{flex:2 1}.calendar-nav button{display:block;flex:1 1;text-align:center;background:transparent;border:none}.calendar-months{display:flex;flex-wrap:wrap}", ""]);
+exports.push([module.i, ".calendar-main *,.calendar-main :after,.calendar-main :before{box-sizing:border-box}.calendar-nav{display:flex}.calendar-nav header{flex:2 1;text-align:center}.calendar-nav button{display:block;flex:1 1;text-align:center;background:transparent;border:none}.calendar-months{display:flex;flex-wrap:wrap}", ""]);
 
 // exports
 

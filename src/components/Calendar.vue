@@ -37,7 +37,7 @@ export default {
   components: { CalendarMonth },
   computed: {
     years() {
-      return this.months.map(m => m.year())[0];
+      return this.months.map(m => m.year()).join("/");
     },
     firstDate: function() {
       return this.months[0];
@@ -93,6 +93,7 @@ export default {
 
 .calendar-nav header {
   flex: 2 1;
+  text-align: center;
 }
 
 .calendar-nav button {
