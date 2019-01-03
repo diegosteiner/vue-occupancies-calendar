@@ -17,8 +17,8 @@
       </calendar-month>
     </div>
     <nav class="calendar-nav">
-      <button v-on:click="prev">← {{ labelPrev }}</button>
-      <button v-on:click="next">{{ labelNext }} →</button>
+      <button @click="prev">← {{ labelPrev }}</button>
+      <button @click="next">{{ labelNext }} →</button>
     </nav>
   </div>
 </template>
@@ -80,7 +80,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .calendar-main *,
 .calendar-main *:before,
 .calendar-main *:after {
@@ -89,19 +89,19 @@ export default {
 
 .calendar-nav {
   display: flex;
-}
 
-.calendar-nav header {
-  flex: 2 1;
-  text-align: center;
-}
+  header {
+    flex: 2 1;
+    text-align: center;
+  }
 
-.calendar-nav button {
-  display: block;
-  flex: 1 1;
-  text-align: center;
-  background: transparent;
-  border: none;
+  button {
+    display: block;
+    flex: 1 1;
+    text-align: center;
+    background: transparent;
+    border: none;
+  }
 }
 
 .calendar-months {

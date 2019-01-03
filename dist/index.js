@@ -1731,7 +1731,7 @@ exports = module.exports = __webpack_require__(28)(false);
 
 
 // module
-exports.push([module.i, ".calendar-month{margin:1rem;overflow:hidden;flex:1 0;max-width:300px;min-width:252px}.calendar-month header{font-weight:700;text-align:center;padding:.25rem 0}.calendar-month .calendar-week{display:flex}.calendar-month .calendar-week span{flex:0 0 14.28%;font-weight:700;max-width:14.28%;text-align:center;padding:.25rem}.calendar-month .calendar-days{display:flex;flex-wrap:wrap}.calendar-day{flex:0 0 14.28%;max-width:14.28%;cursor:pointer;margin:0}.calendar-day a{display:block;text-decoration:none;color:inherit;text-align:center}.calendar-day.spacer{cursor:auto}", ""]);
+exports.push([module.i, ".calendar-month{margin:1rem;overflow:hidden;flex:1 0;min-width:182px}.calendar-month header{font-weight:700;text-align:center;padding:.25rem 0}.calendar-month .calendar-week{display:flex}.calendar-month .calendar-week span{flex:0 0 14.28%;font-weight:700;max-width:14.28%;text-align:center;padding:.25rem}.calendar-days{display:flex;flex-wrap:wrap}.calendar-days .calendar-day{flex:0 0 14.28%;max-width:14.28%;margin:0}.calendar-days button{text-align:center}", ""]);
 
 // exports
 
@@ -1823,7 +1823,7 @@ var content = __webpack_require__(63);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(30)("1d94d644", content, true, {});
+var update = __webpack_require__(30)("73a700d3", content, true, {});
 
 /***/ }),
 /* 68 */
@@ -1836,7 +1836,7 @@ var content = __webpack_require__(64);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(30)("4dbb2a0a", content, true, {});
+var update = __webpack_require__(30)("d142f4f6", content, true, {});
 
 /***/ }),
 /* 69 */

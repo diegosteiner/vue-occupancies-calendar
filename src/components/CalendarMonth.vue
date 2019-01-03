@@ -54,52 +54,43 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .calendar-month {
   margin: 1rem;
   overflow: hidden;
   flex: 1 0;
-  max-width: 300px;
-  min-width: 252px;
+  min-width: 182px;
+  header {
+    font-weight: bold;
+    text-align: center;
+    padding: 0.25rem 0;
+  }
+
+  .calendar-week {
+    display: flex;
+
+    span {
+      flex: 0 0 14.28%;
+      font-weight: bold;
+      max-width: 14.28%;
+      text-align: center;
+      padding: 0.25rem;
+    }
+  }
 }
 
-.calendar-month header {
-  font-weight: bold;
-  text-align: center;
-  padding: 0.25rem 0;
-}
-
-.calendar-month .calendar-week {
-  display: flex;
-}
-
-.calendar-month .calendar-week span {
-  flex: 0 0 14.28%;
-  font-weight: bold;
-  max-width: 14.28%;
-  text-align: center;
-  padding: 0.25rem;
-}
-
-.calendar-month .calendar-days {
+.calendar-days {
   display: flex;
   flex-wrap: wrap;
-}
 
-.calendar-day {
-  flex: 0 0 14.28%;
-  max-width: 14.28%;
-  cursor: pointer;
-  margin: 0;
-}
+  .calendar-day {
+    flex: 0 0 14.28%;
+    max-width: 14.28%;
+    margin: 0;
+  }
 
-.calendar-day a {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  text-align: center;
-}
-.calendar-day.spacer {
-  cursor: initial;
+  button {
+    text-align: center;
+  }
 }
 </style>

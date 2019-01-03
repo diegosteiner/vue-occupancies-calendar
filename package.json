@@ -1,6 +1,6 @@
 {
   "name": "vue-occupancies-calendar",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Display a calendar",
   "main": "dist/index.js",
   "jsnext:main": "src/index.js",
@@ -42,6 +42,8 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
-    "moment": "^2.21.0"
+    "moment": "^2.21.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0"
   }
 }
