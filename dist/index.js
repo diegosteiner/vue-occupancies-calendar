@@ -120,7 +120,7 @@ module.exports = function (it) {
 /* 3 */
 /***/ (function(module, exports) {
 
-var core = module.exports = { version: '2.6.0' };
+var core = module.exports = { version: '2.6.1' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -1794,7 +1794,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     return _c('span', {
       key: weekday
     }, [_vm._v(_vm._s(weekday))])
-  })), _vm._v(" "), _c('div', {
+  }), 0), _vm._v(" "), _c('div', {
     staticClass: "calendar-days"
   }, [_vm._l((_vm.monthStartsAfter), function(n) {
     return _c('div', {
