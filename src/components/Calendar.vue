@@ -1,9 +1,9 @@
 <template>
   <div class="calendar-main">
     <nav class="calendar-nav">
-      <button @click.prevent="prev">← {{ labelPrev }}</button>
+      <button @click.prevent="prev">← {{ $t("prev") }}</button>
       <header>{{ years }}</header>
-      <button @click.prevent="next">{{ labelNext }} →</button>
+      <button @click.prevent="next">{{ $t("next") }} →</button>
     </nav>
     <div class="calendar-months">
       <calendar-month
@@ -17,22 +17,39 @@
       </calendar-month>
     </div>
     <nav class="calendar-nav">
-      <button @click.prevent="prev">← {{ labelPrev }}</button>
+      <button @click.prevent="prev">← {{ $t("prev") }}</button>
       <footer></footer>
-      <button @click.prevent="next">{{ labelNext }} →</button>
+      <button @click.prevent="next">{{ $t("next") }} →</button>
     </nav>
   </div>
 </template>
 
 <script>
 import CalendarMonth from "./CalendarMonth.vue";
-import moment, { isMoment } from "moment";
+import moment from "moment";
 
 export default {
-  props: ["displayMonths", "firstMonth"],
+  props: {
+    displayMonths: {
+      type: Number,
+      default: 4
+    },
+    firstMonth: null
+  },
   data: function() {
     return {
-      months: []
+      months: () => {
+        let month = moment(this.firstMonth);
+        if (!month.isValid()) {
+          month = moment();
+        }
+        month = month.startOf("month");
+        for (let i = this.monthsCount; i > 0; i--) {
+          this.months.push(month);
+          month = moment(month);
+          month.add(1, "month");
+        }
+      }
     };
   },
   components: { CalendarMonth },
@@ -43,40 +60,16 @@ export default {
     firstDate: function() {
       return this.months[0];
     },
-    monthsCount: function() {
-      return parseInt(this.displayMonths) || 4;
-    },
-    labelNext: function() {
-      return this.$t("next");
-    },
-    labelPrev: function() {
-      return this.$t("prev");
-    }
   },
   methods: {
-    initializeMonths: function() {
-      let month = moment(this.firstMonth !== undefined && this.firstMonth());
-      if (!month.isValid()) {
-        month = moment();
-      }
-      month = month.startOf("month");
-      for (let i = this.monthsCount; i > 0; i--) {
-        this.months.push(month);
-        month = moment(month);
-        month.add(1, "month");
-      }
-    },
-    prev: function() {
+    prev() {
       this.months.unshift(
         moment(this.months.pop()).subtract(this.displayMonths, "month")
       );
     },
-    next: function() {
+    next() {
       this.months.push(this.months.shift().add(this.displayMonths, "month"));
     }
-  },
-  created: function() {
-    this.initializeMonths();
   }
 };
 </script>

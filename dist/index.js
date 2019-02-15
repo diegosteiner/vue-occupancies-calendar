@@ -967,10 +967,29 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   }
 
   exports.default = {
-    props: ["displayMonths", "firstMonth"],
+    props: {
+      displayMonths: {
+        type: Number,
+        default: 4
+      },
+      firstMonth: null
+    },
     data: function data() {
+      var _this = this;
+
       return {
-        months: []
+        months: function months() {
+          var month = (0, _moment2.default)(_this.firstMonth);
+          if (!month.isValid()) {
+            month = (0, _moment2.default)();
+          }
+          month = month.startOf("month");
+          for (var i = _this.monthsCount; i > 0; i--) {
+            _this.months.push(month);
+            month = (0, _moment2.default)(month);
+            month.add(1, "month");
+          }
+        }
       };
     },
     components: { CalendarMonth: _CalendarMonth2.default },
@@ -983,39 +1002,15 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
       firstDate: function firstDate() {
         return this.months[0];
-      },
-      monthsCount: function monthsCount() {
-        return parseInt(this.displayMonths) || 4;
-      },
-      labelNext: function labelNext() {
-        return this.$t("next");
-      },
-      labelPrev: function labelPrev() {
-        return this.$t("prev");
       }
     },
     methods: {
-      initializeMonths: function initializeMonths() {
-        var month = (0, _moment2.default)(this.firstMonth !== undefined && this.firstMonth());
-        if (!month.isValid()) {
-          month = (0, _moment2.default)();
-        }
-        month = month.startOf("month");
-        for (var i = this.monthsCount; i > 0; i--) {
-          this.months.push(month);
-          month = (0, _moment2.default)(month);
-          month.add(1, "month");
-        }
-      },
       prev: function prev() {
         this.months.unshift((0, _moment2.default)(this.months.pop()).subtract(this.displayMonths, "month"));
       },
       next: function next() {
         this.months.push(this.months.shift().add(this.displayMonths, "month"));
       }
-    },
-    created: function created() {
-      this.initializeMonths();
     }
   };
 });
@@ -1752,14 +1747,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         return _vm.prev($event)
       }
     }
-  }, [_vm._v("← " + _vm._s(_vm.labelPrev))]), _vm._v(" "), _c('header', [_vm._v(_vm._s(_vm.years))]), _vm._v(" "), _c('button', {
+  }, [_vm._v("← " + _vm._s(_vm.$t("prev")))]), _vm._v(" "), _c('header', [_vm._v(_vm._s(_vm.years))]), _vm._v(" "), _c('button', {
     on: {
       "click": function($event) {
         $event.preventDefault();
         return _vm.next($event)
       }
     }
-  }, [_vm._v(_vm._s(_vm.labelNext) + " →")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.$t("next")) + " →")])]), _vm._v(" "), _c('div', {
     staticClass: "calendar-months"
   }, _vm._l((_vm.months), function(month) {
     return _c('calendar-month', {
@@ -1783,14 +1778,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         return _vm.prev($event)
       }
     }
-  }, [_vm._v("← " + _vm._s(_vm.labelPrev))]), _vm._v(" "), _c('footer'), _vm._v(" "), _c('button', {
+  }, [_vm._v("← " + _vm._s(_vm.$t("prev")))]), _vm._v(" "), _c('footer'), _vm._v(" "), _c('button', {
     on: {
       "click": function($event) {
         $event.preventDefault();
         return _vm.next($event)
       }
     }
-  }, [_vm._v(_vm._s(_vm.labelNext) + " →")])])])
+  }, [_vm._v(_vm._s(_vm.$t("next")) + " →")])])])
 },staticRenderFns: []}
 
 /***/ }),
