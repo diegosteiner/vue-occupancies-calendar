@@ -120,7 +120,7 @@ module.exports = function (it) {
 /* 3 */
 /***/ (function(module, exports) {
 
-var core = module.exports = { version: '2.6.1' };
+var core = module.exports = { version: '2.6.5' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -442,7 +442,7 @@ var store = global[SHARED] || (global[SHARED] = {});
 })('versions', []).push({
   version: core.version,
   mode: __webpack_require__(21) ? 'pure' : 'global',
-  copyright: '© 2018 Denis Pushkarev (zloirock.ru)'
+  copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
 });
 
 
@@ -1747,11 +1747,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "calendar-nav"
   }, [_c('button', {
     on: {
-      "click": _vm.prev
+      "click": function($event) {
+        $event.preventDefault();
+        return _vm.prev($event)
+      }
     }
   }, [_vm._v("← " + _vm._s(_vm.labelPrev))]), _vm._v(" "), _c('header', [_vm._v(_vm._s(_vm.years))]), _vm._v(" "), _c('button', {
     on: {
-      "click": _vm.next
+      "click": function($event) {
+        $event.preventDefault();
+        return _vm.next($event)
+      }
     }
   }, [_vm._v(_vm._s(_vm.labelNext) + " →")])]), _vm._v(" "), _c('div', {
     staticClass: "calendar-months"
@@ -1766,17 +1772,23 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         fn: function(date) {
           return [_vm._t("default", null, null, date)]
         }
-      }])
+      }], true)
     })
   }), 1), _vm._v(" "), _c('nav', {
     staticClass: "calendar-nav"
   }, [_c('button', {
     on: {
-      "click": _vm.prev
+      "click": function($event) {
+        $event.preventDefault();
+        return _vm.prev($event)
+      }
     }
-  }, [_vm._v("← " + _vm._s(_vm.labelPrev))]), _vm._v(" "), _c('button', {
+  }, [_vm._v("← " + _vm._s(_vm.labelPrev))]), _vm._v(" "), _c('footer'), _vm._v(" "), _c('button', {
     on: {
-      "click": _vm.next
+      "click": function($event) {
+        $event.preventDefault();
+        return _vm.next($event)
+      }
     }
   }, [_vm._v(_vm._s(_vm.labelNext) + " →")])])])
 },staticRenderFns: []}

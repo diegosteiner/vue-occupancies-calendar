@@ -1,9 +1,9 @@
 <template>
   <div class="calendar-main">
     <nav class="calendar-nav">
-      <button v-on:click="prev">← {{ labelPrev }}</button>
+      <button @click.prevent="prev">← {{ labelPrev }}</button>
       <header>{{ years }}</header>
-      <button v-on:click="next">{{ labelNext }} →</button>
+      <button @click.prevent="next">{{ labelNext }} →</button>
     </nav>
     <div class="calendar-months">
       <calendar-month
@@ -17,8 +17,9 @@
       </calendar-month>
     </div>
     <nav class="calendar-nav">
-      <button @click="prev">← {{ labelPrev }}</button>
-      <button @click="next">{{ labelNext }} →</button>
+      <button @click.prevent="prev">← {{ labelPrev }}</button>
+      <footer></footer>
+      <button @click.prevent="next">{{ labelNext }} →</button>
     </nav>
   </div>
 </template>
