@@ -967,49 +967,40 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   }
 
   exports.default = {
+    components: { CalendarMonth: _CalendarMonth2.default },
     props: {
       displayMonths: {
         type: Number,
         default: 4
       },
-      firstMonth: null
+      firstDate: null
     },
     data: function data() {
-      var _this = this;
-
       return {
-        months: function months() {
-          var month = (0, _moment2.default)(_this.firstMonth);
-          if (!month.isValid()) {
-            month = (0, _moment2.default)();
-          }
-          month = month.startOf("month");
-          for (var i = _this.monthsCount; i > 0; i--) {
-            _this.months.push(month);
-            month = (0, _moment2.default)(month);
-            month.add(1, "month");
-          }
-        }
+        firstMonth: (0, _moment2.default)(this.firstDate).startOf("month")
       };
     },
-    components: { CalendarMonth: _CalendarMonth2.default },
+
     computed: {
       years: function years() {
         return [].concat((0, _toConsumableArray3.default)(new Set(this.months.map(function (m) {
           return m.year();
         })))).join("/");
       },
-
-      firstDate: function firstDate() {
-        return this.months[0];
+      months: function months() {
+        var months = [];
+        for (var i = 0; i < this.displayMonths; i++) {
+          months.push((0, _moment2.default)(this.firstMonth).add(i, "month"));
+        }
+        return months;
       }
     },
     methods: {
       prev: function prev() {
-        this.months.unshift((0, _moment2.default)(this.months.pop()).subtract(this.displayMonths, "month"));
+        this.firstMonth = (0, _moment2.default)(this.firstMonth).subtract(1, "month");
       },
       next: function next() {
-        this.months.push(this.months.shift().add(this.displayMonths, "month"));
+        this.firstMonth = (0, _moment2.default)(this.firstMonth).add(1, "month");
       }
     }
   };
@@ -1712,7 +1703,7 @@ exports = module.exports = __webpack_require__(28)(false);
 
 
 // module
-exports.push([module.i, ".calendar-main *,.calendar-main :after,.calendar-main :before{box-sizing:border-box}.calendar-nav{display:flex}.calendar-nav header{flex:2 1;text-align:center}.calendar-nav button{display:block;flex:1 1;text-align:center;background:transparent;border:none}.calendar-months{display:flex;flex-wrap:wrap}", ""]);
+exports.push([module.i, ".calendar-main *,.calendar-main :after,.calendar-main :before{box-sizing:border-box}.calendar-nav{display:flex}.calendar-nav footer,.calendar-nav header{flex:2 1;text-align:center}.calendar-nav button{display:block;flex:1 1;text-align:center;background:transparent;border:none}.calendar-months{display:flex;flex-wrap:wrap}", ""]);
 
 // exports
 

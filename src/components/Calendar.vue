@@ -29,48 +29,39 @@ import CalendarMonth from "./CalendarMonth.vue";
 import moment from "moment";
 
 export default {
+  components: { CalendarMonth },
   props: {
     displayMonths: {
       type: Number,
       default: 4
     },
-    firstMonth: null
+    firstDate: null
   },
-  data: function() {
+  data() {
     return {
-      months: () => {
-        let month = moment(this.firstMonth);
-        if (!month.isValid()) {
-          month = moment();
-        }
-        month = month.startOf("month");
-        for (let i = this.monthsCount; i > 0; i--) {
-          this.months.push(month);
-          month = moment(month);
-          month.add(1, "month");
-        }
-      }
+      firstMonth: moment(this.firstDate).startOf("month")
     };
   },
-  components: { CalendarMonth },
   computed: {
     years() {
       return [...new Set(this.months.map(m => m.year()))].join("/");
     },
-    firstDate: function() {
-      return this.months[0];
-    },
+    months() {
+      const months = []
+      for (let i = 0; i < this.displayMonths; i++) {
+        months.push(moment(this.firstMonth).add(i, "month"));
+      }
+      return months
+    }
   },
   methods: {
     prev() {
-      this.months.unshift(
-        moment(this.months.pop()).subtract(this.displayMonths, "month")
-      );
+      this.firstMonth = moment(this.firstMonth).subtract(1, "month")
     },
     next() {
-      this.months.push(this.months.shift().add(this.displayMonths, "month"));
+      this.firstMonth = moment(this.firstMonth).add(1, "month")
     }
-  }
+  },
 };
 </script>
 
@@ -84,7 +75,8 @@ export default {
 .calendar-nav {
   display: flex;
 
-  header {
+  header,
+  footer {
     flex: 2 1;
     text-align: center;
   }
