@@ -35,7 +35,9 @@ export default {
       type: Number,
       default: 4
     },
-    firstDate: null
+    firstDate: {
+      default: null
+    }
   },
   data() {
     const firstDate = moment(this.firstDate)

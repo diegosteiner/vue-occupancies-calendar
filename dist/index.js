@@ -973,7 +973,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         type: Number,
         default: 4
       },
-      firstDate: null
+      firstDate: {
+        default: null
+      }
     },
     data: function data() {
       var firstDate = (0, _moment2.default)(this.firstDate);
@@ -1760,7 +1762,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         fn: function(date) {
           return [_vm._t("default", null, null, date)]
         }
-      }], true)
+      }], null, true)
     })
   }), 1), _vm._v(" "), _c('nav', {
     staticClass: "calendar-nav"
