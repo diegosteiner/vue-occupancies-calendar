@@ -38,8 +38,10 @@ export default {
     firstDate: null
   },
   data() {
+    const firstDate = moment(this.firstDate)
+
     return {
-      firstMonth: moment(this.firstDate).startOf("month")
+      firstMonth: (firstDate.isValid() ? firstDate : moment()).startOf("month")
     };
   },
   computed: {

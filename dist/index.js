@@ -976,8 +976,10 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       firstDate: null
     },
     data: function data() {
+      var firstDate = (0, _moment2.default)(this.firstDate);
+
       return {
-        firstMonth: (0, _moment2.default)(this.firstDate).startOf("month")
+        firstMonth: (firstDate.isValid() ? firstDate : (0, _moment2.default)()).startOf("month")
       };
     },
 
