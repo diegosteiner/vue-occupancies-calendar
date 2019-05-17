@@ -1,9 +1,9 @@
 <template>
   <div class="calendar-main">
     <nav class="calendar-nav">
-      <button @click.prevent="prev">← {{ $t("prev") }}</button>
+      <button @click.prevent="prev">{{ prevMonthLabel }}</button>
       <header>{{ years }}</header>
-      <button @click.prevent="next">{{ $t("next") }} →</button>
+      <button @click.prevent="next">{{ nextMonthLabel }}</button>
     </nav>
     <div class="calendar-months">
       <calendar-month
@@ -17,9 +17,9 @@
       </calendar-month>
     </div>
     <nav class="calendar-nav">
-      <button @click.prevent="prev">← {{ $t("prev") }}</button>
+      <button @click.prevent="prev">{{ prevMonthLabel }}</button>
       <footer></footer>
-      <button @click.prevent="next">{{ $t("next") }} →</button>
+      <button @click.prevent="next">{{ nextMonthLabel }}</button>
     </nav>
   </div>
 </template>
@@ -37,7 +37,15 @@ export default {
     },
     firstDate: {
       default: null
-    }
+    },
+    nextMonthLabel: {
+      type: String,
+      default: "→"
+    },
+    prevMonthLabel: {
+      type: String,
+      default: "←"
+    },
   },
   data() {
     const firstDate = moment(this.firstDate)

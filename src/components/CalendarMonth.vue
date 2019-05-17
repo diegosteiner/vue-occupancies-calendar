@@ -9,10 +9,13 @@
       <div
         v-for="date in datesToDisplay"
         class="calendar-day"
-        :date="date.format('Y-MM-DD')"
+        :date="date"
         :key="date.format('Y-MM-DD')"
       >
-        <slot v-bind="date"></slot>
+        <template v-if="freeze" v-once>
+          <slot v-bind="date"></slot>
+        </template>
+        <template v-else>--{{date.format("D")}}--</template>
       </div>
     </div>
   </div>
@@ -22,14 +25,23 @@
 import moment from "moment";
 
 export default {
-  props: ["datetime", "moment"],
-  computed: {
-    firstDate: function() {
-      if (this.moment !== undefined) {
-        return this.moment;
-      }
-      return moment(this.datetime, "Y-MM");
+  props: {
+    datetime: String,
+    freeze: {
+      type: Boolean,
+      default: false,
     },
+    locale: {
+      default: 'de',
+      type: String
+    }
+  },
+  data() {
+    return {
+      firstDate: moment(this.datetime, "Y-MM")
+    }
+  },
+  computed: {
     datesToDisplay: function() {
       var date = moment(this.firstDate);
       var dates = [];
@@ -40,11 +52,13 @@ export default {
       return dates;
     },
     weekdayNames: function() {
+      moment.locale(this.locale);
       const weekdays = moment.weekdaysShort().slice(0);
       weekdays.push(weekdays.shift());
       return weekdays;
     },
     monthName: function() {
+      moment.locale(this.locale);
       return moment(this.firstDate).format("MMMM Y");
     },
     monthStartsAfter: function() {
