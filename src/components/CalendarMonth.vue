@@ -12,12 +12,7 @@
         :date="date"
         :key="date.format('Y-MM-DD')"
       >
-        <template v-if="freeze" v-once>
-          <slot v-bind="date"></slot>
-        </template>
-        <template v-else>
-          <slot v-bind="date"></slot>
-        </template>
+        <slot v-bind="date"></slot>
       </div>
     </div>
   </div>

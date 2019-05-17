@@ -679,11 +679,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   //
   //
   //
-  //
-  //
-  //
-  //
-  //
   var _default = {
     props: {
       datetime: String,
@@ -898,7 +893,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "date": date
       }
-    }, [(_vm.freeze) ? _vm._o([_vm._t("default", null, null, date)], 0, date.format('Y-MM-DD')) : [_vm._t("default", null, null, date)]], 2)
+    }, [_vm._t("default", null, null, date)], 2)
   })], 2)])
 },staticRenderFns: []}
 
