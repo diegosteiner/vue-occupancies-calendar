@@ -15,7 +15,9 @@
         <template v-if="freeze" v-once>
           <slot v-bind="date"></slot>
         </template>
-        <template v-else>--{{date.format("D")}}--</template>
+        <template v-else>
+          <slot v-bind="date"></slot>
+        </template>
       </div>
     </div>
   </div>
