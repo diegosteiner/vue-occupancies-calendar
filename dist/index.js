@@ -593,6 +593,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       prevMonthLabel: {
         type: String,
         "default": "←"
+      },
+      locale: {
+        type: "String"
       }
     },
     data: function data() {
@@ -790,7 +793,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, ".calendar-main *,.calendar-main :after,.calendar-main :before{box-sizing:border-box}.calendar-nav{display:flex}.calendar-nav footer,.calendar-nav header{flex:2 1;text-align:center}.calendar-nav button{display:block;flex:1 1;text-align:center;background:transparent;border:none}.calendar-months{display:flex;flex-wrap:wrap}", ""]);
+exports.push([module.i, ".calendar-main *,.calendar-main :after,.calendar-main :before{box-sizing:border-box}.calendar-nav{display:flex;font-size:2rem}.calendar-nav footer,.calendar-nav header{flex:2 1;text-align:center}.calendar-nav button{display:block;flex:1 1;text-align:center;background:transparent;border:none}.calendar-months{display:flex;flex-wrap:wrap}", ""]);
 
 // exports
 
@@ -838,7 +841,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     return _c('calendar-month', {
       key: month.format('Y-MM'),
       attrs: {
-        "datetime": month.format('Y-MM')
+        "datetime": month.format('Y-MM'),
+        "locale": _vm.locale
       },
       scopedSlots: _vm._u([{
         key: "default",

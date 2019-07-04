@@ -10,6 +10,7 @@
         v-for="month in months"
         :datetime="month.format('Y-MM')"
         :key="month.format('Y-MM')"
+        :locale="locale"
       >
         <template scope="date">
           <slot v-bind="date"></slot>
@@ -46,6 +47,9 @@ export default {
       type: String,
       default: "←"
     },
+    locale: {
+      type: "String"
+    }
   },
   data() {
     const firstDate = moment(this.firstDate)
@@ -86,6 +90,7 @@ export default {
 
 .calendar-nav {
   display: flex;
+  font-size: 2rem;
 
   header,
   footer {
