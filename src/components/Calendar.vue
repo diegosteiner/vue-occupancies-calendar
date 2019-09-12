@@ -110,6 +110,9 @@ export default {
 
 .calendar-months {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(7rem, 14rem));
+  grid-template-columns: repeat(auto-fill, minmax(15.65rem, 16.65rem));
+  grid-gap: 1rem;
+  align-content: space-between;
+  justify-content: space-between;
 }
 </style>

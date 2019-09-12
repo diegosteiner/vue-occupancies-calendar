@@ -82,7 +82,9 @@ export default {
 
   .calendar-days {
     display: grid;
-    grid-template-columns: repeat(7, minmax(1rem 2rem));
+    grid-template-columns: repeat(7, minmax(2rem, 4rem));
+    align-content: space-between;
+    justify-content: space-between;
 
     button {
       text-align: center;
