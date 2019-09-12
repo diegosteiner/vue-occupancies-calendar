@@ -65,8 +65,6 @@ export default {
 
 <style lang="scss">
 .calendar-month {
-  margin: 1rem;
-  overflow: hidden;
 
   header {
     font-weight: bold;
