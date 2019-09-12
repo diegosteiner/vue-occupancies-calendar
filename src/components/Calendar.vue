@@ -12,7 +12,7 @@
         :key="month.format('Y-MM')"
         :locale="locale"
       >
-        <template scope="date">
+        <template slot-scope="date">
           <slot v-bind="date"></slot>
         </template>
       </calendar-month>
@@ -109,7 +109,7 @@ export default {
 }
 
 .calendar-months {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7rem, 14rem));
 }
 </style>

@@ -3,8 +3,9 @@ const path = require('path');
 
 module.exports = {
   context: __dirname,
+  mode: 'production',
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         loader: 'babel-loader',
