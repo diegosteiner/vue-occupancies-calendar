@@ -69,13 +69,14 @@ export default {
   header {
     font-weight: bold;
     text-align: center;
-    padding: 0.25em 0;
+    padding: .25em 0;
+    font-size: .8em;
   }
 
   .calendar-weekday {
     font-weight: bold;
       text-align: center;
-      padding: 0.25em;
+      padding: .25em;
   }
 
   .calendar-days {
@@ -84,7 +85,7 @@ export default {
     grid-template-rows: repeat(7, 2em);
     align-content: space-between;
     justify-content: space-between;
-    grid-gap: 1px;
+    grid-gap: .15em;
 
     button {
       text-align: center;
