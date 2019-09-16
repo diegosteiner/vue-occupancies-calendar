@@ -7,7 +7,7 @@
       <time
         v-for="date in datesToDisplay"
         class="calendar-day"
-        :date="date"
+        :date="date.format('Y-MM-DD')"
         :key="date.format('Y-MM-DD')"
       >
         <slot v-bind="date"></slot>
@@ -80,8 +80,8 @@ export default {
 
   .calendar-days {
     display: grid;
-    grid-template-columns: repeat(7, minmax(2rem, 4rem));
-    grid-template-rows: repeat(7, minmax(2rem, 4rem));
+    grid-template-columns: repeat(7, 2rem);
+    grid-template-rows: repeat(7, 2rem);
     align-content: space-between;
     justify-content: space-between;
     grid-gap: 1px;
