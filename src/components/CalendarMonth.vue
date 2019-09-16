@@ -70,13 +70,13 @@ export default {
     font-weight: bold;
     text-align: center;
     padding: .25em 0;
-    font-size: .8em;
   }
 
   .calendar-weekday {
     font-weight: bold;
-      text-align: center;
-      padding: .25em;
+    text-align: center;
+    padding: .25em;
+    font-size: .8em;
   }
 
   .calendar-days {
