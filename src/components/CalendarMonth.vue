@@ -69,19 +69,19 @@ export default {
   header {
     font-weight: bold;
     text-align: center;
-    padding: 0.25rem 0;
+    padding: 0.25em 0;
   }
 
   .calendar-weekday {
     font-weight: bold;
       text-align: center;
-      padding: 0.25rem;
+      padding: 0.25em;
   }
 
   .calendar-days {
     display: grid;
-    grid-template-columns: repeat(7, 2rem);
-    grid-template-rows: repeat(7, 2rem);
+    grid-template-columns: repeat(7, 2em);
+    grid-template-rows: repeat(7, 2em);
     align-content: space-between;
     justify-content: space-between;
     grid-gap: 1px;

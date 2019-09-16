@@ -83,15 +83,19 @@ export default {
 </script>
 
 <style lang="scss">
-.calendar-main *,
-.calendar-main *:before,
-.calendar-main *:after {
-  box-sizing: border-box;
+.calendar-main {
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+
+  font-size: 1rem;
 }
 
 .calendar-nav {
   display: flex;
-  font-size: 2rem;
+  font-size: 2em;
 
   header,
   footer {
@@ -110,9 +114,9 @@ export default {
 
 .calendar-months {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(14rem, 15rem));
-  grid-template-rows: minmax(14rem, 15rem);
-  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(14em, 15em));
+  grid-template-rows: minmax(14em, 15em);
+  grid-gap: 1em;
   align-content: space-evenly;
   justify-content: space-evenly;
 }
