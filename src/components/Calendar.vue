@@ -115,7 +115,7 @@ export default {
 .calendar-months {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(14em, 15em));
-  grid-template-rows: minmax(14em, 15em);
+  grid-template-rows: 17em;
   grid-gap: 1em;
   align-content: space-evenly;
   justify-content: space-evenly;
