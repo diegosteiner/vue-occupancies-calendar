@@ -27,7 +27,6 @@
 
 <script>
 import CalendarMonth from "./CalendarMonth.vue";
-import moment from "moment";
 
 export default {
   components: { CalendarMonth },
@@ -53,10 +52,10 @@ export default {
     }
   },
   data() {
-    const firstDate = moment(this.firstDate)
+    const firstDate = this.$moment(this.firstDate)
 
     return {
-      firstMonth: (firstDate.isValid() ? firstDate : moment()).startOf("month")
+      firstMonth: (firstDate.isValid() ? firstDate : this.$moment()).startOf("month")
     };
   },
   computed: {
@@ -66,23 +65,23 @@ export default {
     months() {
       const months = []
       for (let i = 0; i < this.displayMonths; i++) {
-        months.push(moment(this.firstMonth).add(i, "month"));
+        months.push(this.$moment(this.firstMonth).add(i, "month"));
       }
       return months
     }
   },
   methods: {
     prev() {
-      this.firstMonth = moment(this.firstMonth).subtract(1, "month")
+      this.firstMonth = this.$moment(this.firstMonth).subtract(1, "month")
     },
     next() {
-      this.firstMonth = moment(this.firstMonth).add(1, "month")
+      this.firstMonth = this.$moment(this.firstMonth).add(1, "month")
     }
   },
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .calendar-main {
   *,
   *:before,

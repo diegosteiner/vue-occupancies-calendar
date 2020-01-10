@@ -17,8 +17,6 @@
 </template>
 
 <script>
-import moment from "moment";
-
 export default {
   props: {
     datetime: String,
@@ -33,50 +31,47 @@ export default {
   },
   data() {
     return {
-      firstDate: moment(this.datetime, "Y-MM")
+      firstDate: this.$moment(this.datetime, "Y-MM")
     }
   },
   computed: {
-    datesToDisplay: function() {
-      var date = moment(this.firstDate);
+    datesToDisplay() {
+      var date = this.$moment(this.firstDate);
       var dates = [];
       while (date.isSame(this.firstDate, "month")) {
-        dates.push(moment(date));
+        dates.push(date.clone());
         date.add(1, "day");
       }
       return dates;
     },
-    weekdayNames: function() {
-      moment.locale(this.locale);
-      const weekdays = moment.weekdaysShort().slice(0);
+    weekdayNames() {
+      const weekdays = this.$moment.weekdaysShort().slice(0);
       weekdays.push(weekdays.shift());
       return weekdays;
     },
-    monthName: function() {
-      moment.locale(this.locale);
-      return moment(this.firstDate).format("MMMM Y");
+    monthName() {
+      return this.$moment(this.firstDate).format("MMMM Y");
     },
-    monthStartsAfter: function() {
+    monthStartsAfter() {
       return parseInt(this.firstDate.format("e"));
     }
   }
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .calendar-month {
-
   header {
     font-weight: bold;
     text-align: center;
-    padding: .25em 0;
+    padding: 0.25em 0;
   }
 
   .calendar-weekday {
     font-weight: bold;
     text-align: center;
-    padding: .25em;
-    font-size: .8em;
+    padding: 0.25em;
+    font-size: 0.8em;
   }
 
   .calendar-days {
@@ -85,7 +80,7 @@ export default {
     grid-template-rows: repeat(7, 2em);
     align-content: space-between;
     justify-content: space-between;
-    grid-gap: .15em;
+    grid-gap: 0.15em;
 
     button {
       text-align: center;

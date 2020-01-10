@@ -33,6 +33,5 @@ module.exports = {
 
   externals: {
     vue: 'vue',
-    moment: 'moment',
   },
 };
