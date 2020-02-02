@@ -67,7 +67,7 @@ export default {
     font-weight: bold;
     text-align: center;
     padding: 0.25em;
-    font-size: 0.8em;
+    font-size: 0.65em;
   }
 
   .calendar-days {
@@ -75,6 +75,7 @@ export default {
     grid-template-columns: repeat(7, 2em);
     grid-template-rows: repeat(7, 2em);
     align-content: space-between;
+    align-items: items;
     justify-content: space-between;
     grid-gap: 0.15em;
 
