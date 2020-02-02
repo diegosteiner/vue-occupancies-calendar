@@ -10,7 +10,6 @@
         v-for="month in months"
         :datetime="month.format('Y-MM')"
         :key="month.format('Y-MM')"
-        :locale="locale"
       >
         <template slot-scope="date">
           <slot v-bind="date"></slot>
@@ -45,10 +44,6 @@ export default {
     prevMonthLabel: {
       type: String,
       default: "←"
-    },
-    locale: {
-      type: String,
-      default: 'de'
     }
   },
   data() {

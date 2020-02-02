@@ -24,10 +24,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    locale: {
-      default: 'de',
-      type: String
-    }
   },
   data() {
     return {
