@@ -31,6 +31,10 @@ module.exports = {
     libraryTarget: 'umd',
   },
 
+  optimization: {
+    // usedExports: true,
+  },
+
   externals: {
     vue: 'vue',
   },

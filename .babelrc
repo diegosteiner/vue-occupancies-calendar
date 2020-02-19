@@ -3,7 +3,7 @@
     [
       "@babel/preset-env",
       {
-        "modules": "umd",
+        "modules": false,
         "forceAllTransforms": true,
         "targets": {
           "browsers": [

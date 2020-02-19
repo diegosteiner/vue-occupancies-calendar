@@ -1,8 +1,9 @@
 {
   "name": "vue-occupancies-calendar",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "Display a calendar",
   "main": "dist/index.js",
+  "sideEffects": false,
   "jsnext:main": "src/index.js",
   "scripts": {
     "start": "webpack --watch --config webpack.config.js",
@@ -33,6 +34,7 @@
     "@babel/preset-env": "^7.0.0",
     "babel-loader": "^8.0.0",
     "css-loader": "^0.28.1",
+    "date-fns": "^2.9.0",
     "eslint": "^3.7.1",
     "eslint-config-spatie": "^1.1.0",
     "vue": "^2.5.21",

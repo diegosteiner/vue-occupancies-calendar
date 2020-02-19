@@ -1,14 +1,14 @@
 <template>
   <div class="calendar-month" v-once>
-    <header>{{ monthName }}</header>
+    <header>{{ $d(datetime, { monthName: 'long'}) }}</header>
     <div class="calendar-days">
       <div v-for="weekday in weekdayNames" :key="weekday" class="calendar-weekday">{{ weekday }}</div>
       <div v-for="n in monthStartsAfter" :key="n" class="calendar-day spacer"></div>
       <time
-        v-for="date in datesToDisplay"
+        v-for="date in daysOfMonth"
         class="calendar-day"
-        :date="date.format('Y-MM-DD')"
-        :key="date.format('Y-MM-DD')"
+        :date="date.toISOString()"
+        :key="date.toISOString()"
       >
         <slot v-bind="date"></slot>
       </time>
@@ -17,39 +17,21 @@
 </template>
 
 <script>
+import { eachDayOfInterval, startOfMonth, endOfMonth, startOfWeek, endOfWeek, getDay } from 'date-fns'
+
 export default {
   props: {
     datetime: String,
-    freeze: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  data() {
-    return {
-      firstDate: this.$moment(this.datetime, "Y-MM")
-    }
   },
   computed: {
-    datesToDisplay() {
-      var date = this.$moment(this.firstDate);
-      var dates = [];
-      while (date.isSame(this.firstDate, "month")) {
-        dates.push(date.clone());
-        date.add(1, "day");
-      }
-      return dates;
+    daysOfMonth() {
+      return eachDayOfInterval({ start: startOfMonth(this.datetime), end: endOfMonth(this.datetime) })
     },
     weekdayNames() {
-      const weekdays = this.$moment.weekdaysShort().slice(0);
-      weekdays.push(weekdays.shift());
-      return weekdays;
-    },
-    monthName() {
-      return this.$moment(this.firstDate).format("MMMM Y");
+      return eachDayOfInterval({ start: startOfWeek(this.datetime), end: endOfWeek(this.datetime) }).map(weekday => this.$d(weekday, { weekday: 'short'}))
     },
     monthStartsAfter() {
-      return parseInt(this.firstDate.format("e"));
+      return 7 - getDay(startOfMonth(this.datetime));
     }
   }
 };

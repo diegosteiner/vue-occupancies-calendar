@@ -8,8 +8,8 @@
     <div class="calendar-months">
       <calendar-month
         v-for="month in months"
-        :datetime="month.format('Y-MM')"
-        :key="month.format('Y-MM')"
+        :datetime="month"
+        :key="`month-${month.toISOString()}`"
       >
         <template slot-scope="date">
           <slot v-bind="date"></slot>
@@ -26,6 +26,7 @@
 
 <script>
 import CalendarMonth from "./CalendarMonth.vue";
+import { eachDayOfInterval, startOfMonth, parseISO, addMonths, subMonths, isValid } from 'date-fns'
 
 export default {
   components: { CalendarMonth },
@@ -47,10 +48,10 @@ export default {
     }
   },
   data() {
-    const firstDate = this.$moment(this.firstDate)
+    const startOfCalendar = parseISO(this.firstDate)
 
     return {
-      firstMonth: (firstDate.isValid() ? firstDate : this.$moment()).startOf("month")
+      startOfCalendar: startOfMonth(isValid(startOfCalendar) ? startOfCalendar : new Date())
     };
   },
   computed: {
@@ -58,19 +59,15 @@ export default {
       return [...new Set(this.months.map(m => m.year()))].join("/");
     },
     months() {
-      const months = []
-      for (let i = 0; i < this.displayMonths; i++) {
-        months.push(this.$moment(this.firstMonth).add(i, "month"));
-      }
-      return months
+      return eachMonthOfInterval({ start: startOfMonth(this.startOfCalendar), end: addMonths(this.startOfCalendar, this.displayMonths)})
     }
   },
   methods: {
     prev() {
-      this.firstMonth = this.$moment(this.firstMonth).subtract(1, "month")
+      this.startOfCalendar = addMonths(this.startOfCalendar, 1)
     },
     next() {
-      this.firstMonth = this.$moment(this.firstMonth).add(1, "month")
+      this.startOfCalendar = subMonths(this.startOfCalendar, 1)
     }
   },
 };
