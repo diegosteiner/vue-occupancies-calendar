@@ -26,7 +26,7 @@
 
 <script>
 import CalendarMonth from "./CalendarMonth.vue";
-import { eachDayOfInterval, startOfMonth, parseISO, addMonths, subMonths, isValid } from 'date-fns'
+import { eachMonthOfInterval, startOfMonth, parseISO, addMonths, subMonths, isValid } from 'date-fns'
 
 export default {
   components: { CalendarMonth },
