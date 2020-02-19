@@ -1,6 +1,6 @@
 {
   "name": "vue-occupancies-calendar",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "Display a calendar",
   "main": "dist/index.js",
   "sideEffects": false,
