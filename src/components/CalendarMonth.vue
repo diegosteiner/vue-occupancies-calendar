@@ -2,7 +2,11 @@
   <div class="calendar-month" v-once>
     <header>{{ $d(datetime, { monthName: 'long'}) }}</header>
     <div class="calendar-days">
-      <div v-for="weekday in weekdayNames" :key="weekday" class="calendar-weekday">{{ weekday }}</div>
+      <div
+        v-for="weekday in weekdayNames"
+        :key="weekday"
+        class="calendar-weekday"
+      >{{ $d(weekday, { weekday: 'short'}) }}</div>
       <div v-for="n in monthStartsAfter" :key="n" class="calendar-day spacer"></div>
       <time
         v-for="date in daysOfMonth"
@@ -21,14 +25,14 @@ import { eachDayOfInterval, startOfMonth, endOfMonth, startOfWeek, endOfWeek, ge
 
 export default {
   props: {
-    datetime: String,
+    datetime: Date,
   },
   computed: {
     daysOfMonth() {
       return eachDayOfInterval({ start: startOfMonth(this.datetime), end: endOfMonth(this.datetime) })
     },
     weekdayNames() {
-      return eachDayOfInterval({ start: startOfWeek(this.datetime), end: endOfWeek(this.datetime) }).map(weekday => this.$d(weekday, { weekday: 'short'}))
+      return eachDayOfInterval({ start: startOfWeek(this.datetime), end: endOfWeek(this.datetime) })
     },
     monthStartsAfter() {
       return 7 - getDay(startOfMonth(this.datetime));

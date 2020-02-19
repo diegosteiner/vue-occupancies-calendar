@@ -64,10 +64,10 @@ export default {
   },
   methods: {
     prev() {
-      this.startOfCalendar = addMonths(this.startOfCalendar, 1)
+      this.startOfCalendar = subMonths(this.startOfCalendar, 1)
     },
     next() {
-      this.startOfCalendar = subMonths(this.startOfCalendar, 1)
+      this.startOfCalendar = addMonths(this.startOfCalendar, 1)
     }
   },
 };
