@@ -1,38 +1,35 @@
 <template>
   <div class="calendar-month" v-once>
-    <header>{{ $d(datetime, { monthName: 'long'}) }}</header>
+    <header>{{ monthName }}</header>
     <div class="calendar-days">
-      <div
-        v-for="weekday in weekdayNames"
-        :key="weekday"
-        class="calendar-weekday"
-      >{{ $d(weekday, { weekday: 'short'}) }}</div>
+      <div v-for="weekday in locale.weekdays" :key="weekday" class="calendar-weekday">{{ weekday }}</div>
       <div v-for="n in monthStartsAfter" :key="n" class="calendar-day spacer"></div>
       <time
-        v-for="date in daysOfMonth"
+        v-for="day in daysOfMonth"
         class="calendar-day"
-        :date="date.toISOString()"
-        :key="date.toISOString()"
+        :date="day.toISOString()"
+        :key="day.toISOString()"
       >
-        <slot v-bind="date"></slot>
+        <slot :date="day"></slot>
       </time>
     </div>
   </div>
 </template>
 
 <script>
-import { eachDayOfInterval, startOfMonth, endOfMonth, startOfWeek, endOfWeek, getDay } from 'date-fns'
+import { eachDayOfInterval, startOfMonth, endOfMonth, startOfWeek, endOfWeek, getDay, getMonth } from 'date-fns'
 
 export default {
   props: {
     datetime: Date,
+    locale: Object
   },
   computed: {
     daysOfMonth() {
       return eachDayOfInterval({ start: startOfMonth(this.datetime), end: endOfMonth(this.datetime) })
     },
-    weekdayNames() {
-      return eachDayOfInterval({ start: startOfWeek(this.datetime), end: endOfWeek(this.datetime) })
+    monthName() {
+      return this.locale.months[getMonth(this.datetime)]
     },
     monthStartsAfter() {
       return 7 - getDay(startOfMonth(this.datetime));
