@@ -2,7 +2,7 @@
   <div class="calendar-month" v-once>
     <header>{{ monthName }}</header>
     <div class="calendar-days">
-      <div v-for="weekday in locale.weekdays" :key="weekday" class="calendar-weekday">{{ weekday }}</div>
+      <div v-for="weekday in weekdayNames" :key="weekday" class="calendar-weekday">{{ weekday }}</div>
       <div v-for="n in monthStartsAfter" :key="n" class="calendar-day spacer"></div>
       <time
         v-for="day in daysOfMonth"
@@ -31,8 +31,11 @@ export default {
     monthName() {
       return this.locale.months[getMonth(this.datetime)]
     },
+    weekdayNames() {
+      return this.locale.weekdays.slice(1, -1)
+    },
     monthStartsAfter() {
-      return 7 - getDay(startOfMonth(this.datetime));
+      return (getDay(startOfMonth(this.datetime)) + 6) % 7
     }
   }
 };
