@@ -37,7 +37,7 @@ export default {
       return weekdays
     },
     monthStartsAfter() {
-      return Math.abs((getDay(startOfMonth(this.datetime)) - 1) % 7)
+      return (getDay(startOfMonth(this.datetime)) + 6) % 7
     }
   }
 };
