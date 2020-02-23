@@ -32,10 +32,12 @@ export default {
       return this.locale.months[getMonth(this.datetime)]
     },
     weekdayNames() {
-      return this.locale.weekdays.slice(1, -1)
+      const weekdays = Array.from(this.locale.weekdays)
+      weekdays.push(weekdays.shift())
+      return weekdays
     },
     monthStartsAfter() {
-      return (getDay(startOfMonth(this.datetime)) + 6) % 7
+      return Math.abs((getDay(startOfMonth(this.datetime)) - 1) % 7)
     }
   }
 };
