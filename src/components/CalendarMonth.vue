@@ -1,14 +1,15 @@
 <template>
-  <div class="calendar-month" v-once>
+  <div class="calendar-month">
     <header>{{ monthName }}</header>
     <div class="calendar-days">
       <div v-for="weekday in weekdayNames" :key="weekday" class="calendar-weekday">{{ weekday }}</div>
       <div v-for="n in monthStartsAfter" :key="n" class="calendar-day spacer"></div>
       <time
         v-for="day in daysOfMonth"
+        v-once
         class="calendar-day"
         :date="day.toISOString()"
-        :key="day.toISOString()"
+        :key="`day-${day.toISOString()}-${loading}`"
       >
         <slot :date="day"></slot>
       </time>
@@ -22,7 +23,8 @@ import { eachDayOfInterval, startOfMonth, endOfMonth, startOfWeek, endOfWeek, ge
 export default {
   props: {
     datetime: Date,
-    locale: Object
+    locale: Object,
+    loading: false
   },
   computed: {
     daysOfMonth() {

@@ -8,12 +8,13 @@
     <div class="calendar-months">
       <calendar-month
         v-for="month in months"
+        v-once
         :datetime="month"
-        :key="`month-${month.toISOString()}`"
+        :key="`month-${month.toISOString()}-${loading}`"
         :locale="locale"
       >
-        <template slot-scope="date">
-          <slot v-bind="date"></slot>
+        <template v-slot="{ date }">
+          <slot :date="date"></slot>
         </template>
       </calendar-month>
     </div>
@@ -38,6 +39,10 @@ export default {
     },
     firstDate: {
       default: null
+    },
+    loading: {
+      type: Boolean,
+      default: false
     },
     locale: {
       type: Object,
