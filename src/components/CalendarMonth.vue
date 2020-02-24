@@ -9,6 +9,7 @@
         class="calendar-day"
         :date="day.toISOString()"
         :key="`day-${day.toISOString()}`"
+        v-once
       >
         <slot :date="day"></slot>
       </time>
