@@ -9,9 +9,8 @@
       <calendar-month
         v-for="month in months"
         :datetime="month"
-        :key="month.toISOString()"
+        :key="`month-${month.toISOString()}`"
         :locale="locale"
-        v-once
       >
         <template v-slot="{ date }">
           <slot :date="date"></slot>

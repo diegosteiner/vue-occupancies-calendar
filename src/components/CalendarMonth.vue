@@ -1,5 +1,5 @@
 <template>
-  <div class="calendar-month">
+  <div class="calendar-month" v-once>
     <header>{{ monthName }}</header>
     <div class="calendar-days">
       <div v-for="weekday in weekdayNames" :key="weekday" class="calendar-weekday">{{ weekday }}</div>
@@ -8,8 +8,7 @@
         v-for="day in daysOfMonth"
         class="calendar-day"
         :date="day.toISOString()"
-        :key="day.toISOString()"
-        v-once
+        :key="`day-${day.toISOString()}`"
       >
         <slot :date="day"></slot>
       </time>
