@@ -9,7 +9,7 @@
       <calendar-month
         v-for="month in months"
         :datetime="month"
-        :key="`month-${month.toISOString()}`"
+        :key="month.toISOString()"
         :locale="locale"
         v-once
       >
