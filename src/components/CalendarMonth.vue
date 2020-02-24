@@ -8,7 +8,7 @@
         v-for="day in daysOfMonth"
         class="calendar-day"
         :date="day.toISOString()"
-        :key="`day-${day.toISOString()}-${loading}`"
+        :key="`day-${day.toISOString()}`"
       >
         <slot :date="day"></slot>
       </time>
