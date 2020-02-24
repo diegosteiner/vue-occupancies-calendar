@@ -11,6 +11,7 @@
         :datetime="month"
         :key="`month-${month.toISOString()}`"
         :locale="locale"
+        v-once
       >
         <template v-slot="{ date }">
           <slot :date="date"></slot>
