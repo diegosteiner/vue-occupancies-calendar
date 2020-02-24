@@ -6,7 +6,6 @@
       <div v-for="n in monthStartsAfter" :key="n" class="calendar-day spacer"></div>
       <time
         v-for="day in daysOfMonth"
-        v-once
         class="calendar-day"
         :date="day.toISOString()"
         :key="`day-${day.toISOString()}-${loading}`"
@@ -24,7 +23,6 @@ export default {
   props: {
     datetime: Date,
     locale: Object,
-    loading: false
   },
   computed: {
     daysOfMonth() {
